@@ -10,9 +10,8 @@ This repository accompanies the publication GerMedIQ: At the Gap Between Human a
 @inproceedings{hofenbitzer2025germediq,
   title            ={{GerMedIQ: At the Gap Between Human and Synthetic Clinical Text}},
   author           ={Justin Hofenbitzer and Sch{\"o}ning, Sebastian and Belle, Sebastian and Lammert, Jacqueline and Modersohn, Luise and Boeker, Martin and Frassinelli, Diego},
-  booktitle        ={ACL 2025 Student Research Workshop},
+  booktitle        ={Accepted at ACL 2025 Student Research Workshop},
   year             ={2025},
-  url              ={https://openreview.net/forum?id=qz8twDwZ7Y}
 },
 @Misc{hofenbitzer2025jhofenbitzer,
   author           = {Justin Hofenbitzer and Sch{\"o}ning, Sebastian and Belle, Sebastian and Lammert, Jacqueline and Modersohn, Luise and Boeker, Martin and Frassinelli, Diego},
