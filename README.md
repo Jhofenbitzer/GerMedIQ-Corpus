@@ -4,7 +4,7 @@ This repository hosts the GerMedIQ corpus, a dataset containing 4,524 unique **s
 Along with the simulated responses, an LLM-augmented addition of the corpus can be found, too. The responses from the LLM were created by 18 small, medium-sized, and large biomedical or general-domain LLMs in a zero-shot approach. For further details, refer to our paper.
 
 # Citations
-This repository accompanies the publication GerMedIQ: At the Gap Between Human and Synthetic Clinical Text, ACL SRW 2025. Please cite both the publication and this Zenodo record when using this resource:
+This repository accompanies the publication GerMedIQ: At the Gap Between Human and Synthetic Clinical Text, ACL SRW 2025. Please cite both the publication and the Zenodo record when using this resource:
 
 ```
 @inproceedings{hofenbitzer2025germediq,
