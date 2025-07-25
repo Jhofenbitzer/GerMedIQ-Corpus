@@ -1,0 +1,5 @@
+# Paths
+csv_input_path: "../../CorpusFiles/HelperFiles/all_responses_cleaned.csv"
+output_dir_group: "../../CorpusFiles/HelperFiles/grouped.csv"
+output_dir_centroid: "../../EvaluationResults/SemanticEvaluation/similarity_results_centroid_internal.csv"
+output_dir_pairwise: "../../EvaluationResults/SemanticEvaluation/similarity_results_models.csv"
