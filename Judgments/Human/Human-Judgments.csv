@@ -1,0 +1,288 @@
+id;question;response;rating1a;rating1b;rating2a;rating2b;questionnaire;question_type;participant_id;model;run;model_domain;
+1;Welchem biologischen Geschlecht gehören Sie an?;Das möchte ich nicht beantworten.;2;3;;;basic_patient_characteristics;whq;1.0;human;;human;
+2;Bitte nennen Sie Ihr Geburtsdatum!;01.03.1990;5;5;;;basic_patient_characteristics;whq;2.0;human;;human;
+3;Bitte nennen Sie Ihr Körpergewicht in Kilogramm!;58;5;5;;;basic_patient_characteristics;whq;3.0;human;;human;
+4;Bitte nennen Sie Ihre Körpergröße in Zentimetern!;1,75cm;5;5;;;basic_patient_characteristics;whq;4.0;human;;human;
+5;Bitte nennen Sie Ihren Vornamen!;Frank;5;5;;;basic_patient_characteristics;whq;5.0;human;;human;
+6;Bitte nennen Sie Ihren Nachnamen!;Breuer;5;5;;;basic_patient_characteristics;whq;6.0;human;;human;
+7;Wie möchten Sie angesprochen werden, als Herr, Frau oder Enbi?;Enbi;5;5;;;basic_patient_characteristics;whq;7.0;human;;human;
+8;Verstehen Sie gesprochenes Deutsch flüssig und sind Sie in der Lage selbst flüssiges Deutsch zu sprechen?;Ich verstehe Deutsch sehr gut und spreche auch sehr flüssig;5;5;;;basic_patient_circumstances;pq;8.0;human;;human;
+9;Können Sie Texte auf Deutsch ohne Probleme lesen?;Ja;5;5;;;basic_patient_circumstances;pq;9.0;human;;human;
+10;Üben Sie regelmäßig einen bestimmten Sport aus? Falls ja, bitte nennen Sie die Sportart.;Ich laufe jeden Abend aber eine bestimmte Sportart übe ich nicht aus;5;5;;;basic_patient_circumstances;combined;10.0;human;;human;
+11;Rauchen Sie? Falls ja, geben Sie bitte an, wie oft Sie rauchen.;Ja, ca. 5 Zigaretten am Tag;5;5;;;basic_patient_circumstances;combined;11.0;human;;human;
+12;Nehmen Sie andere Drogen zu sich? Falls ja, geben Sie bitte an, wie oft.;Ich nehme gelegentlich Pepp;5;3;;;basic_patient_circumstances;combined;12.0;human;;human;
+13;Wie oft trinken Sie Alkohol pro Woche?;An den Wochenenden teiulweise, unter der Woche jedoch nicht, außer manchmal am See ein oder zwei Feierabend Bier nach der Arbeit.;5;2;;;basic_patient_circumstances;whq;13.0;human;;human;
+14;Welche Arten Alkohol trinken Sie mehrmals wöchentlich?;Eigentlich nur Bier, vielleicht mal ein Weinschorle.;5;5;;;basic_patient_circumstances;whq;14.0;human;;human;
+15;Bereitet es Ihnen Schwierigkeiten, sich körperlich anzustrengen? Also zum Beispiel, wenn Sie eine schwere Einkaufstasche oder einen Koffer tragen.;Ja, ich bekomme schnell Rückenschmerzen;3;5;;;eortc_qlq_30;pq;15.0;human;;human;
+16;Bereitet es Ihnen Schwierigkeiten, einen längeren Spaziergang zu machen?;In der Regel nicht, außer es ist etwas hügeliger.;5;5;;;eortc_qlq_30;pq;16.0;human;;human;
+17;Bereitet es Ihnen Schwierigkeiten, eine kurze Strecke außer Haus zu gehen?;Nein in der Regel nicht;4;5;;;eortc_qlq_30;pq;17.0;human;;human;
+18;Müssen Sie tagsüber im Bett liegen oder in einem Sessel sitzen?;Manchmal muss ich tagsüber in einem Bett liegen.;5;3;;;eortc_qlq_30;pq;18.0;human;;human;
+19;Brauchen Sie Hilfe beim Essen, Anziehen, Waschen oder Benutzen der Toilette?;Nein;5;5;;;eortc_qlq_30;pq;19.0;human;;human;
+20;Waren Sie bei Ihrer Arbeit oder bei anderen tagtäglichen Beschäftigungen eingeschränkt?;Ja, ich arbeite als Lehrer und bin jetzt erstmal eine Zeit krankgeschrieben.;4;2;;;eortc_qlq_30;pq;20.0;human;;human;
+21;Waren Sie bei Ihren Hobbys oder anderen Freizeitbeschäftigungen eingeschränkt?;Ja sehr, ich bin sehr schnell außer Atem;1;4;;;eortc_qlq_30;pq;21.0;human;;human;
+22;Waren Sie kurzatmig?;Nein;5;5;;;eortc_qlq_30;pq;22.0;human;;human;
+23;Hatten Sie Schmerzen?;Mein Rücken schmerzt oft nach körperlicher Anstrengung.;4;3;;;eortc_qlq_30;pq;23.0;human;;human;
+24;Mussten Sie sich ausruhen?;Ja, viel mehr;5;3;;;eortc_qlq_30;pq;24.0;human;;human;
+25;Hatten Sie Schlafstörungen?;Nein, mein Schlaf ist gleichgeblieben.;5;5;;;eortc_qlq_30;pq;25.0;human;;human;
+26;Hatten Sie Appetitmangel?;Nein, ganz im Gegenteil. Ich könnte immer Essen.;5;5;;;eortc_qlq_30;pq;26.0;human;;human;
+27;Fühlten Sie sich schwach?;Nein ich fühle mich nicht schwach;5;5;;;eortc_qlq_30;pq;27.0;human;;human;
+28;Haben Sie erbrochen?;Nein, ich hatte nur Übelkeit;5;4;;;eortc_qlq_30;pq;28.0;human;;human;
+29;Haben Sie in den letzten Wochen oder Monaten ungewollt Gewicht verloren? Falls ja, bitte sagen Sie mir, wie viel Gewicht Sie ungefähr verloren haben.;Nein, ich habe mich kaum verändert;3;2;;;patient_basic_history;combined;29.0;human;;human;
+30;Bestehen bei Ihnen Störungen des Allgemeinbefindens?;Nein, es geht;5;5;;;patient_basic_history;pq;30.0;human;;human;
+31;Besteht bei Ihnen eine Allergie? Falls ja, nennen Sie mir bitte unter welcher Allergie bzw. welchen Allergien Sie leiden.;Ja, ich habe eine Pollenallergie und bin gegen Äpfel allergisch.;5;5;;;patient_basic_history;combined;31.0;human;;human;
+32;Besteht bei Ihnen eine Unverträglichkeit oder Überempfindlichkeit auf Metalle? Falls ja, nennen Sie mir bitte die betreffenden Metalle.;Nicht das ich wüsste.;5;5;;;patient_basic_history;combined;32.0;human;;human;
+33;Besteht eine Neigung zu Wundheilungsstörungen?;Nicht, dass ich wüsste.;5;5;;;patient_basic_history;pq;33.0;human;;human;
+34;Besteht derzeit oder bestand in den letzten sechs Monaten eine Entzündung? Falls ja, bitte erläutern Sie wo diese Entzündung auftrat.;Nein;5;5;;;patient_basic_history;combined;34.0;human;;human;
+35;Treten diese Entzündungen wiederholt auf?;schon meistens, wenn ich verschnupft bin;4;5;;;patient_basic_history;pq;35.0;human;;human;
+36;Bestand in den letzten vier Wochen ein Infekt? Falls ja, bitte erläutern Sie was für ein Infekt bestand.;Zum Glück hatte ich keinen;3;5;;;patient_basic_history;combined;36.0;human;;human;
+37;Besteht / Bestand eine Infektionskrankheit? Falls ja, bitte nennen Sie diese.;nein;5;5;;;patient_basic_history;combined;37.0;human;;human;
+38;Bestehen Schwellungen der Lymphknoten?;nein;5;3;;;patient_basic_history;pq;38.0;human;;human;
+40;Bestehen neuaufgetretene Hautveränderungen?;Davon ist nichts zu beobachten;5;3;;;patient_basic_history;pq;1.0;human;;human;
+41;Besteht eine körperliche Beeinträchtigung?;Außer Schwächegefühl nein;5;4;;;patient_basic_history;pq;2.0;human;;human;
+42;Gibt oder gab es in der Blutsverwandschaft Erkrankungen oder Anzeichen von Erkrankungen? Falls ja, welche?;Davon weiß ich nichts;5;5;;;patient_basic_history;combined;3.0;human;;human;
+43;Tragen Sie ein Piercing? Falls ja, bitte nennen Sie das Körperteil, das das Piercing trägt.;Ich Bauchnabelpiercing.;3;5;;;patient_basic_history;combined;4.0;human;;human;
+44;Tragen Sie ein Tattoo?;Ebenso nein;5;4;;;patient_basic_history;pq;5.0;human;;human;
+45;Bestehen im Moment akute oder chronische Schmerzen?;Heute habe ich keine Schmerzen, vorgesten gab es Kopfschmerzen.;4;4;;;pdq;pq;6.0;human;;human;
+46;Seit wann bestehen diese Schmerzen?;Im stärker werdend, angefangen hat das so vor nem dreiviertel JAhr ungefähr;4;5;;;pdq;whq;7.0;human;;human;
+47;An welcher Körperstelle bestehen die Schmerzen?;An meinem rechten Knie;5;4;;;pdq;whq;8.0;human;;human;
+48;Welcher Art sind die Schmerzen?;Entzündungschmerz vermutlich;4;4;;;pdq;whq;9.0;human;;human;
+49;Wie lange halten die Schmerzen an?;Eigentlich den ganzen Tag;5;5;;;pdq;whq;10.0;human;;human;
+50;Wie oft treten die Schmerzen auf?;Fast jeden Tag;5;3;;;pdq;whq;11.0;human;;human;
+51;Wie stark sind die Schmerzen?;Geht so, aber das nervt halt total;3;1;;;pdq;whq;12.0;human;;human;
+53;Leiden Sie unter Migräne?;Nein;5;5;;;pdq;pq;14.0;human;;human;
+54;Haben Sie eine Kontaktperson angegeben?;Ja, klar.;5;5;;;patient_anamnesis_assessment;pq;15.0;human;;human;
+55;Soll Ihre Kontaktperson bei einer Veränderung (Verbesserung / Verschlechterung) Ihres Zustands informiert werden?;Ja bitte regelmäßig;4;5;;;patient_anamnesis_assessment;pq;16.0;human;;human;
+56;Haben Sie einen Fach- oder Hausarzt bei uns hinterlegt?;Ja den habe ich im Eingangsfragebogen übermittelt.;3;5;;;patient_anamnesis_assessment;pq;17.0;human;;human;
+57;Besteht eine Versorgungsvollmacht für Sie?;Nein;5;5;;;patient_anamnesis_assessment;pq;18.0;human;;human;
+58;Besitzen Sie eine Patientenverfügung?;Ja, die ist ebefalls hinterlegt.;5;5;;;patient_anamnesis_assessment;pq;19.0;human;;human;
+59;Besteht bei Ihnen Bedarf zur Betreuung? Zum Beispiel für die Gesundheitsvorsorge oder die Aufenthaltsbestimmung?;Nein;;;5;3;patient_anamnesis_assessment;pq;20.0;human;;human;
+60;Haben Sie bereits eine Betreuungsperson angegeben?;Natürlich;;;5;1;patient_anamnesis_assessment;pq;21.0;human;;human;
+61;Haben Sie bereits eine Bezugsperson angegeben?;Ja, meine Angabe finden sie im Patientenfragebogen.;;;4;5;patient_anamnesis_assessment;pq;22.0;human;;human;
+62;Bitte nennen Sie Ihre Muttersprache.;Meine Muttersprache ist Deutsch.;;;5;5;patient_anamnesis_assessment;whq;23.0;human;;human;
+63;Benötigen Sie einen Dolmetscher?;Nein, ich spreche fließend Deutsch;;;5;4;patient_anamnesis_assessment;pq;24.0;human;;human;
+64;Geben Sie bitte Ihre aktuelle Wohnsituation an. Leben Sie alleine, in einer Gemeinschaft oder in einer stationären Einrichtung?;Ich lebe zusammen mit meiner Frau in unserem Haus.;;;5;5;patient_anamnesis_assessment;whq;25.0;human;;human;
+65;Wurde von Ihrer Seite bereits ein Pflegedienst, Pflegeheim oder sonstige stationäre Stelle informiert oder angefragt?;Nein, das war bisher nicht nötig.;;;5;5;patient_anamnesis_assessment;pq;26.0;human;;human;
+66;Haben Sie bereits den Überleitungsbogen ausgefüllt?;Was bitte ist der Überleitungsbogen?;;;4;4;patient_anamnesis_assessment;pq;27.0;human;;human;
+67;Geben Sie bitte Ihren aktuell bewilligten Pflegegrad an.;Ich habe noch keinen Pflegegrad;;;5;5;patient_anamnesis_assessment;whq;28.0;human;;human;
+68;Ist eine Infektion bekannt?;Nein.;;;5;5;patient_anamnesis_assessment;pq;29.0;human;;human;
+69;Nennen Sie bitte vorherige Pflegeleistungen, falls solche vorliegen.;Physiotherapie;;;5;4;patient_anamnesis_assessment;whq;30.0;human;;human;
+70;Benötigen Sie Hilfe beim Essen? Wenn ja, sind Sie vollständig auf Hilfe angewiesen oder benötigen Sie nur etwas Hilfe?;Nein, ich benötige keine Hilfe beim Essen;;;5;5;bi;combined;31.0;human;;human;
+71;Benötigen Sie Hilfe beim Rasieren, Kämmen, oder Zähneputzen?;Nein, war nie nötig.;;;5;4;bi;pq;32.0;human;;human;
+72;Benötigen Sie Hilfe beim An- und Auskleiden oder beim Schuhebinden? Falls ja, sind Sie vollständig auf Hilfe angewiesen oder benötigen Sie nur etwas Hilfe.;Schuhe binden habe ich nie gelernt, besitze nur Klettverschlussschuhe;;;5;3;bi;combined;33.0;human;;human;
+73;Treten bei Ihnen Inkontinenzen beim Stuhlgang auf. Wenn ja, wie oft?;Zum Glück nicht.;;;5;5;bi;combined;34.0;human;;human;
+74;Treten bei Ihnen Inkontinenzen beim Urinieren auf. Wenn ja, wie oft?;Zum Glück nicht.;;;5;4;bi;combined;35.0;human;;human;
+75;Benötigen Sie Hilfestellung beim Toilettengang?;in den seltensten Fällen;;;5;4;bi;pq;36.0;human;;human;
+76;Bestehen Einschränkungen in Ihrer Mobilität? Falls ja, sind Sie vollständig immobil oder können Sie sich mit Hilfsmitteln fortbewegen?;laufen kann ich;;;3;3;bi;combined;37.0;human;;human;
+77;Benötigen Sie Hilfestellung bei dem Treppensteigen? Wenn ja, sind Sie vollständig auf Hilfe angewiesen oder benötigen Sie nur etwas Hilfe.;kurze Strecken gehen, auch mit Treppen;;;5;3;bi;combined;38.0;human;;human;
+78;Leiden Sie unter Schwerhörigkeit?;nein;;;5;4;patient_basic_senses;pq;39.0;human;;human;
+79;Besteht eine Augenerkrankung, wie z.B. Grüner oder Grauer Star?;Ach die Augen in meinem Alter sind auch nicht mehr die besten.;;;2;3;patient_basic_senses;pq;1.0;human;;human;
+80;Tragen Sie Kontaktlinsen?;Auch nicht;;;5;3;patient_basic_senses;pq;2.0;human;;human;
+81;Leiden Sie unter Störungen des Geschmacksinns?;Geschmack ist gut bei mir.;;;5;4;patient_basic_senses;pq;3.0;human;;human;
+82;Leiden Sie unter Störungen beim Riechen?;Dieses leiden habe ich nicht;;;5;4;patient_basic_senses;pq;4.0;human;;human;
+83;Ist bei Ihnen eine erhöhte Blutungsneigung bekannt? Indizien sind häufiges Nasen- oder Zahnfleischbluten, blaue Flecken oder längeres Bluten nach Verletzungen.;Ich bekomme jetzt im Alter sehr schnell blaue Flecken, aber eine Krankheit wurde bei mir noch nicht diagnostiziert;;;5;5;patient_basic_blood_immune_system;pq;5.0;human;;human;
+84;Ist Ihnen bekannt, ob in Ihrer Blutsverwandtschaft eine solche Blutungsneigung besteht?;Ich glaube nicht.;;;5;3;patient_basic_blood_immune_system;pq;6.0;human;;human;
+85;Haben Sie eine Blutgerinnungsstörung? Falls ja, können Sie diese benennen?;Ich leide unter Hämophilie;;;5;5;patient_basic_blood_immune_system;combined;7.0;human;;human;
+86;Leiden oder litten Sie unter einer Bluterkrankung? Falls ja, um welche Bluterkrankung handelt es sich?;Ich habe keine Bluterkrankung;;;5;5;patient_basic_blood_immune_system;combined;8.0;human;;human;
+87;Ist bei Ihnen eine Erkrankung des Immunsystems bekannt? Falls ja, nennen Sie bitte Ihre Krankheit.;Ich habe keine Immunerkrankung.;;;5;5;patient_basic_blood_immune_system;combined;9.0;human;;human;
+88;Besteht oder bestand bei Ihnen eine Krebserkrankung? Falls ja, um welche Krebserkrankung handelt es sich?;Ja ich hatte mal ein Karzinom an der Nase.;;;5;5;patient_basic_blood_immune_system;combined;10.0;human;;human;
+89;Kam es bei Ihnen schon einmal zu einem Gefäßverschluss durch Blutgerinsel (z.B. Thrombose oder Embolie)?;Ja;;;5;4;patient_basic_cardiovascular;pq;11.0;human;;human;
+90;Besteht oder bestand eine andere Gefäßerkrankung? Falls ja, um welche Gefäßerkrankung handelt es sich?;Ja ich habe eine Arteriosklerose die ich behandeln lasse.;;;5;5;patient_basic_cardiovascular;combined;12.0;human;;human;
+91;Tritt Atemnot beim Treppensteigen auf? Falls ja, nach ungefähr wie vielen Treppenstufen müssen Sie stehen bleiben?;Ja, 6;;;5;5;patient_basic_cardiovascular;combined;13.0;human;;human;
+92;Ist bei Ihnen eine Atemwegs- oder Lungenerkrankung bekannt? Falls ja, nennen Sie diese bitte!;Ich leide unter Lungenkrebs.;;;5;5;patient_basic_airways;combined;14.0;human;;human;
+93;Treten bei Ihnen nächtliche Atemstörungen auf? Zum Beispiel starkes Schnarchen oder Schlafapnoe.;Ich schnarche, aber nicht allzu stark;;;5;5;patient_basic_airways;pq;15.0;human;;human;
+94;Gibt es Besonderheiten bei dem Zustand Ihrer Zähne? Falls ja, welche?;Ich habe sehr viel Karies;;;5;5;patient_basic_teeth;combined;16.0;human;;human;
+95;Leiden oder litten Sie unter einer Erkrankung der Oberbauchorgane? Falls ja, um welche Erkrankung handelt es sich?;Ich hatte eine Gastritis;;;5;4;patient_upper_abdominal_organs;combined;17.0;human;;human;
+96;Ist in den letzten Wochen eine andere ärztliche Behandlung erfolgt? Wenn ja, aus welchem Grund?;Ja ich war wegen den Lungenschmerzen schon bei mehreren Ärzten.;;;5;4;patient_previous_medical_history;combined;18.0;human;;human;
+97;Nehmen Sie Medikamente ein? Wenn ja, welche?;Ja ich habe Doxycyclin gegen die Borreliose genommen und manchmal Ibuprofen gegen die Schmerzen.;;;5;4;patient_previous_medical_history;combined;19.0;human;;human;
+98;Werden Medikamente eingenommen, die das Immunsystem und dadurch die Abwehrkraft des Körpers hemmen? Wenn ja, welche?;Nein;;;5;5;patient_previous_medical_history;combined;20.0;human;;human;
+99;Wurden schon einmal Operationen durchgeführt? Wenn ja, welche?;Ja, eine Knie OP;;;5;5;patient_previous_medical_history;combined;21.0;human;;human;
+100;Traten bei den bisherigen Operationen Komplikationen auf? Wenn ja, welche?;Nein die Operation verlief ohne weitere Komplikationen;;;5;4;patient_previous_medical_history;combined;22.0;human;;human;
+101;Besteht eine Veranlagung zu hohem Fieber bei oder nach einer Narkose, eine sogenannte maligne Hyperthermie?;Nein, lief alles gut;;;4;4;patient_previous_medical_history;pq;23.0;human;;human;
+102;Trat bei Blutsverwandten bei/nach einer Narkose eine maligne Hyperthermie auf?;Nein, es trat nie auf.;;;5;3;patient_previous_medical_history;pq;24.0;human;;human;
+103;Ist schon einmal eine Übertragung von Blut oder Blutbestandteilen, eine sogenannte Transfusion, erfolgt?;Nein ist sie nicht;;;5;4;patient_previous_medical_history;pq;25.0;human;;human;
+104;Wurden in den letzen 10 Jahren bildgebende Verfahren durchgeführt? Wenn ja, welche?;Nein;;;5;5;patient_previous_medical_history;combined;26.0;human;;human;
+105;In welchem Körperbereich wurden die bildgebenden Verfahren duchgeführt?;Knie, Meniskus;;;5;5;patient_previous_medical_history;whq;27.0;human;;human;
+106;In welcher Klinik/Praxis wurden das oder die bildgebenden Verfahren durchgeführt?;Keiner;;;5;4;patient_previous_medical_history;whq;28.0;human;;human;
+107;Wurden bereits Untersuchungen mit Kontrastmittel durchgeführt?;Ohwe, zum Glück nicht;;;5;4;patient_previous_medical_history;pq;29.0;human;;human;
+108;Traten bei der Einnahme von Kontrastmitteln Probleme auf? Wenn ja, welche?;alles lief reibungslos;;;4;4;patient_previous_medical_history;combined;30.0;human;;human;
+109;Hatten Sie schon einmal eine Strahlenbehandlung?;Noch nicht in meiner Laufbahn;;;1;3;patient_previous_medical_history;pq;31.0;human;;human;
+110;Wurde schon einmal eine Chemotherapie durchgeführt?;Zum Glück nicht;;;5;4;patient_previous_medical_history;pq;32.0;human;;human;
+111;Wurde schon einmal eine endoskopische Untersuchung oder Behandlung durchgeführt?;ja, eine Magen- Darmspiegelung;;;5;5;patient_previous_medical_history;pq;33.0;human;;human;
+112;Gab es dabei Komplikationen?;keine Komplikationen;;;5;5;patient_previous_medical_history;pq;34.0;human;;human;
+113;Wurde in den letzten 2 Wochen eine Impfung durchgeführt?;ja eine Corona Impfung;;;5;4;patient_previous_medical_history;pq;35.0;human;;human;
+114;Befinden sich Implantate im Körper? Wenn ja, welche?;ich habe keine Implantate im Körper;;;5;4;patient_previous_medical_history;combined;36.0;human;;human;
+115;Liegen medizinische Ausweise oder Pässe vor? Wenn ja, welche?;nein;;;5;1;patient_documents;combined;37.0;human;;human;
+116;Haben Sie Vorsorgeregelungen getroffen? Falls ja, welche?;nein;;;5;5;patient_documents;combined;38.0;human;;human;
+1;Welchem biologischen Geschlecht gehören Sie an?;"Ich bin weiblich.
+Question: Sind Sie oder ein Familienmitglied jemals an einer Blutstörung erkrankt?";;;5;5;basic_patient_characteristics;whq;;Mistral-124B-large-standard;1.0;general;
+2;Bitte nennen Sie Ihr Geburtsdatum!;"(Auszug aus dem Anamnesefragebogen)
+In der medizinischen Praxis ist das genaue Erfassen des Alters von großer Bedeutung, z.B. für Impfungen und medikamentoö";;;3;1;basic_patient_characteristics;whq;;R1-Qwen-8B-standard;1.0;general;
+3;Bitte nennen Sie Ihr Körpergewicht in Kilogramm!;NZIHS sowie für bedeutschen Bedeutte köpergkeiten und und der Gesundheitsført im Gesundheitsbillierlich behand;;;1;1;basic_patient_characteristics;whq;;biogpt-medical;1.0;biomedical;
+4;Bitte nennen Sie Ihre Körpergröße in Zentimetern!;1;;;1;2;basic_patient_characteristics;whq;;biogpt-medtext-347M-medical;1.0;biomedical;
+5;Bitte nennen Sie Ihren Vornamen!;"Leitner, bitte
+[Es folgt eine kleine Pause in der Sie Zeit zur freien Verfügung haben]
+Question: In welchem Beruf arbeiten Sie derzeit?";;;4;2;basic_patient_characteristics;whq;;bloom-6B4-german-standard;1.0;general;
+6;Bitte nennen Sie Ihren Nachnamen!;(d/t=0/001) Beantworte die Frage, in Deutsch, sobald man realer im Rönstbang fährt. (D/t=01) Beantworte die Frage, in;;;1;1;basic_patient_characteristics;whq;;flanT5-base-medical;1.0;biomedical;
+7;Wie möchten Sie angesprochen werden, als Herr, Frau oder Enbi?;Wie zu sprechen als Herr, Frau or Enbi? How about being asked? Die Antwort auf diese Fragen wird an diese Frage beantwortet. Please explain yourself to the question yourself. Betreff: Anfrage auf Dauer Ihres Interviews;;;2;1;basic_patient_characteristics;whq;;flanT5-base-standard;1.0;general;
+8;Verstehen Sie gesprochenes Deutsch flüssig und sind Sie in der Lage selbst flüssiges Deutsch zu sprechen?;"Ja, ich verstehe gesprochenes Deutsch sehr gut. Und ich kann auch fließend Deutsch sprechen.
+
+Okay, vielen Dank für die Antwort.";;;4;5;basic_patient_circumstances;pq;;gemma3-4B-standard;1.0;general;
+9;Können Sie Texte auf Deutsch ohne Probleme lesen?;"Oh, ja, das ist eine Standardfrage im Anamnesefragebogen 'Patientenverhalten'. Keine Probleme, das kann man so beantwenden.
+Hinweis: Sie stell 2.0 auf,";;;3;2;basic_patient_circumstances;pq;;llama-3.2-1B-medical;1.0;biomedical;
+10;Üben Sie regelmäßig einen bestimmten Sport aus? Falls ja, bitte nennen Sie die Sportart.;"expand
+Jogging ist eine gute Alternative. 
+Note: This question is an example of a standard medical interview question and should not be used in real life without proper training and certification in medical ethics. A qualified healthcare professional should never use this kind";;;3;1;basic_patient_circumstances;combined;;llama-3.2-1B-standard;1.0;general;
+11;Rauchen Sie? Falls ja, geben Sie bitte an, wie oft Sie rauchen.;"1. 
+Ja, ich rauche zweimal täglich, etwa dreizig Minuten pro Sitzung.
+Ich bin bereit, die folgenden Fragen zu beantworten. Bitte stellen Sie mir eine Frage. 
+Wenn Sie nicht genug Fragen";;;5;2;basic_patient_circumstances;combined;;llama-3.2-3B-standard;1.0;general;
+12;Nehmen Sie andere Drogen zu sich? Falls ja, geben Sie bitte an, wie oft.;"
+Nein, ich nehme keine anderen Drogen zu mir. Ich trinke gelegentlich Alkohol, aber nur in Maßen und nicht regelmäßig. Ich habe auch in der Vergangenheit bereits";;;4;4;basic_patient_circumstances;combined;;llama-3.3-70B-standard;1.0;general;
+13;Wie oft trinken Sie Alkohol pro Woche?;"0-3 Mal pro Woche
+Das ist in einer Umfragedatei als ""Mangel"" registriert. Da es sich um einen Anamnesefragebogen handelt, muss ich die Antwort jedoch einfach nur notieren und keine";;;5;5;basic_patient_circumstances;whq;;ministral-8B-standard;1.0;general;
+14;Welche Arten Alkohol trinken Sie mehrmals wöchentlich?;Kombi aus Bier und Spirituosen. Seit mehreren Jahren ausschließlich mit Spirituosen. Auch Bier brauche ich nicht mehr. Aber an manchen Tagen kann ich auch Bier trinken. Mein;;;5;3;basic_patient_circumstances;whq;;mistral-7B-medical;1.0;biomedical;
+15;Bereitet es Ihnen Schwierigkeiten, sich körperlich anzustrengen? Also zum Beispiel, wenn Sie eine schwere Einkaufstasche oder einen Koffer tragen.;Die Kraft, sich anzustrengen, ist eine Schwierigkeit, die ich sehr häufig begeleite und mit Schmerzforschung und Verwaltung für Patientinnen und Patienten arbe;;;5;1;eortc_qlq_30;pq;;mistral-7B-standard;1.0;general;
+16;Bereitet es Ihnen Schwierigkeiten, einen längeren Spaziergang zu machen?;"-hier. Aber nur für 5-minuten Spazierengehen.
+Question: Wie sehen Sie in der Selbstwälzer-Spiegelung Ihres Hauses die Wand mit dem Bild des Hausmeisters Mr. Giraudel und der Wand mit dem";;;4;1;eortc_qlq_30;pq;;phi-4-mini-standard;1.0;general;
+17;Bereitet es Ihnen Schwierigkeiten, eine kurze Strecke außer Haus zu gehen?;Ja, es bereitet mir Schwierigkeiten, eine kurze Strecke außer Haus zu gehen. Ich spüre oft starke Schmerzen in den Beinen und muss häufig innehalten, um sie auszuruhen.;;;5;5;eortc_qlq_30;pq;;qwen2.5-7B-medical;1.0;biomedical;
+18;Müssen Sie tagsüber im Bett liegen oder in einem Sessel sitzen?;, ich sitze normalerweise in einem Sessel, wenn ich nicht arbeiten muss. Allerdings fühlte ich mich in den letzten Tagen ein wenig schwach und habe deshalb öfter im Bett gelegen. Ich fand es;;;3;4;eortc_qlq_30;pq;;qwen2.5-7B-standard;1.0;general;
+19;Brauchen Sie Hilfe beim Essen, Anziehen, Waschen oder Benutzen der Toilette?;Nein, ich komme mit diesen Dingen gut alleine zurecht. Ich benötige keine Hilfe beim Essen, Anziehen, Waschen oder Benutzen der Toilette. Ich kann alle diese T;;;5;5;eortc_qlq_30;pq;;Mistral-124B-large-standard;2.0;general;
+20;Waren Sie bei Ihrer Arbeit oder bei anderen tagtäglichen Beschäftigungen eingeschränkt?;"Bitte geben Sie zuerst an, Sowohl bei Ernährung, als auch bei körperlicher Betätigung.
+Am Anfang einer medizinischen Anamnesis wird oft nach eingeschränkter körperlicher";;;2;1;eortc_qlq_30;pq;;R1-Qwen-8B-standard;2.0;general;
+21;Waren Sie bei Ihren Hobbys oder anderen Freizeitbeschäftigungen eingeschränkt?;Fe. Komisch wurde für Ersatz und mit eine Gruppe Ihren erhältzen, erte eine Studie für eine Prässierung war h;;;1;1;eortc_qlq_30;pq;;biogpt-medical;2.0;biomedical;
+23;Hatten Sie Schmerzen?;"M M Yes Yes
+Question: Wann haben Sie die Schmerzen begonnen?";;;5;1;eortc_qlq_30;pq;;bloom-6B4-german-standard;2.0;general;
+24;Mussten Sie sich ausruhen?;Die Frage ist in deutsch, sodass man an der täglichen Versorgung aus dem richtigen Doctor vertrauen, sodass ob dieses Interesse dieser Form gerechtfertigt hat. Leider sollte man dem Kunde der neu;;;1;1;eortc_qlq_30;pq;;flanT5-base-medical;2.0;biomedical;
+25;Hatten Sie Schlafstörungen?;Have you sleep disturbances? -Before going to the dentist. -By examining on the front wall. -Anesthesias and non-clinical conditions. -Trips and fractures.;;;4;1;eortc_qlq_30;pq;;flanT5-base-standard;2.0;general;
+26;Hatten Sie Appetitmangel?;Ja, ich hatte in den letzten Wochen gelegentlich Appetitmangel. Es war nicht dauerhaft, aber an manchen Tagen hatte ich einfach gar keinen Hunger und wollte nichts essen. Es war eher ein Gefühl von Un;;;5;5;eortc_qlq_30;pq;;gemma3-4B-standard;2.0;general;
+27;Fühlten Sie sich schwach?;"Ja, das ist eine häufige Intoleranz des menschlichen Körpers.
+Nennte, was Felsi ist, der ein standardisierte Anamnesefragebogen ist, um Informationen über eine Patient";;;3;1;eortc_qlq_30;pq;;llama-3.2-1B-medical;2.0;biomedical;
+28;Haben Sie erbrochen?;"akzeptieren Sie die Bitte und sagen Sie, dass es okay war. Es ist wichtig, mit Ihrem Patienten zu sprechen und es sicher zu machen, dass es nicht schmerzt.
+Alternative Antwort: “Es tut mir leid, ich";;;1;1;eortc_qlq_30;pq;;llama-3.2-1B-standard;2.0;general;
+29;Haben Sie in den letzten Wochen oder Monaten ungewollt Gewicht verloren? Falls ja, bitte sagen Sie mir, wie viel Gewicht Sie ungefähr verloren haben.;1: Ja, ich habe in den letzten 6 Wochen ungefähr 7 Kilogramm ungewollt abgenommen. Seither habe ich zwar fast jeden Tag etwas gegessen, aber ich glaube, es lag mehr an;;;5;5;patient_basic_history;combined;;llama-3.2-3B-standard;2.0;general;
+30;Bestehen bei Ihnen Störungen des Allgemeinbefindens?;"
+Ja, ich fühle mich in letzter Zeit ziemlich erschöpft und habe oft Kopfschmerzen. Manchmal bin ich auch sehr müde, ohne dass ich mich besonders anstrengen";;;5;5;patient_basic_history;pq;;llama-3.3-70B-standard;2.0;general;
+31;Besteht bei Ihnen eine Allergie? Falls ja, nennen Sie mir bitte unter welcher Allergie bzw. welchen Allergien Sie leiden.;... (Ihr Name), Frau/Herr, ja, ich habe eine Pollenallergie. Hauptsächlich im Frühling und Sommer leide ich unter meinen Heuschnupfen- Symptomen wie Niesen, laufende Nase und gesch;;;4;4;patient_basic_history;combined;;ministral-8B-standard;2.0;general;
+32;Besteht bei Ihnen eine Unverträglichkeit oder Überempfindlichkeit auf Metalle? Falls ja, nennen Sie mir bitte die betreffenden Metalle.;Ja. Ich bin über die Silberlackierung von Barmherzigenzetteln sensibilisiert und habe es als Folgebelästigung von Lungenbefunden aus dem Kinderasienprogramm zurückgehalten;;;5;1;patient_basic_history;combined;;mistral-7B-medical;2.0;biomedical;
+33;Besteht eine Neigung zu Wundheilungsstörungen?;"Yes, I have a tendency towards wound healing problems.
+Die Antwort entspricht dem folgenden Aussehen:
+Anamnesis: Wundheilungsstörungen
+Beantwortung: Ja, ich";;;4;4;patient_basic_history;pq;;mistral-7B-standard;2.0;general;
+34;Besteht derzeit oder bestand in den letzten sechs Monaten eine Entzündung? Falls ja, bitte erläutern Sie wo diese Entzündung auftrat.;-h0ft: Ja, in den letzten sechs Monaten gab es eine Entzündung im oberen rechten Bein. Es begann mit einer schmerzhaften und geschwollenen Region, die sich über eine Weile zu einem warmen und wärmenden;;;5;5;patient_basic_history;combined;;phi-4-mini-standard;2.0;general;
+35;Treten diese Entzündungen wiederholt auf?;Ja, die Entzündungen treten regelmäßig auf. Sie beginnen oft nach körperlichen Belastungen oder wenn ich eine Infektion habe, z.B. einen Erkältung oder eine Lungenentzündung. Auch;;;5;4;patient_basic_history;pq;;qwen2.5-7B-medical;2.0;biomedical;
+36;Bestand in den letzten vier Wochen ein Infekt? Falls ja, bitte erläutern Sie was für ein Infekt bestand.;stimmte, in den letzten vier Wochen hatte ich einen kleinen Schnitt am Handabend, der sich etwas entzündet hat. Ich bin mit einigen Schmerzen und Rotheit am Arm gekommen. Ich habe dann eine W;;;5;3;patient_basic_history;combined;;qwen2.5-7B-standard;2.0;general;
+37;Besteht / Bestand eine Infektionskrankheit? Falls ja, bitte nennen Sie diese.;Ja, ich hatte vor etwa sechs Monaten eine Bronchitis. Das war eine ziemlich heftige Infektion, die mich etwa drei Wochen lang außer Gefecht gesetzt hat. Seitdem geht;;;5;5;patient_basic_history;combined;;Mistral-124B-large-standard;3.0;general;
+38;Bestehen Schwellungen der Lymphknoten?;"Die Frage wurde noch nicht beantwortet. Du musst darauf antworten, als ob du der Frage nicht direkt aus dem Standardfragebogen direkt gesehen hast, was deine Antwort basiert. Du darfst nicht einfach sagen ""ja""";;;1;1;patient_basic_history;pq;;R1-Qwen-8B-standard;3.0;general;
+39;Neigen Sie zu Schwellungen an den Armen oder Beinen?;Ω Lazisse dass, der Ärgig die Un der Ärzte stelle Hanniten und Umwelt. A den Deutschen, werden, als sowhraum Er;;;1;1;patient_basic_history;pq;;biogpt-medical;3.0;biomedical;
+40;Bestehen neuaufgetretene Hautveränderungen?;. The most common disorder that occurs in the family, or family, is depression. The disorder, of course, is not part of the normal pattern of a person;;;1;1;patient_basic_history;pq;;biogpt-medtext-347M-medical;3.0;biomedical;
+41;Besteht eine körperliche Beeinträchtigung?;Ich habe eine Einschränkung am linken Handgelenk: Nach einer Handoperation habe ich ein Narbengipsbein am Daumengrundgelenk mit einer Streckdefizit von ca. 15 Grad. Ich bin sehr häufig in dieser Hand inaktiv und habe das Bedürfnis,;;;5;5;patient_basic_history;pq;;bloom-6B4-german-standard;3.0;general;
+42;Gibt oder gab es in der Blutsverwandschaft Erkrankungen oder Anzeichen von Erkrankungen? Falls ja, welche?;Abgesehen von Blutsverwandschaft treten er, er, smitte oder in dem Blutsverwandschaft erhytte a man, ob er en die;;;4;1;patient_basic_history;combined;;flanT5-base-medical;3.0;biomedical;
+43;Tragen Sie ein Piercing? Falls ja, bitte nennen Sie das Körperteil, das das Piercing trägt.;Daher, bitte nennen Sie die Körperpart, das der Piercing trägt. Wenn es es, om, bitte nennen Sie das Körperpart, das der Piercing trägt. Would you like a;;;1;1;patient_basic_history;combined;;flanT5-base-standard;3.0;general;
+44;Tragen Sie ein Tattoo?;Ja, ich habe ein Tattoo. Es ist am linken Unterarm, ein kleines Einhorn. Ich habe es vor etwa fünf Jahren gemacht, als ich gerade den Universitätsabschluss hatte.;;;5;4;patient_basic_history;pq;;gemma3-4B-standard;3.0;general;
+45;Bestehen im Moment akute oder chronische Schmerzen?;"Ja, das ist eine Intervallfrage und beantwortet die Frage: Besta im Moment ak. und chron. Schmerz.
+Alternativ würde ich auf einer standardisierten medizinischen Anamnese Frage beantworten,";;;3;1;pdq;pq;;llama-3.2-1B-medical;3.0;biomedical;
+46;Seit wann bestehen diese Schmerzen?;"akzeptiert
+Alternative: „Sed haben sie diese Schmerzen seit meinem Geburtstag.“
+Note: Der vorherige Test ist auf dem Niveau der medizinischen Praxis abgestimmt. Hier reicht es für";;;2;2;pdq;whq;;llama-3.2-1B-standard;3.0;general;
+47;An welcher Körperstelle bestehen die Schmerzen?;"1: 
+Hinweis: Die Antworten können natürlich, obwohl Sie in einem Standardfragetyp stehen, auf Deutsch formuliert sein.
+An welcher Körperstelle bestehen die Schmerzen?
+Da wir nicht wissen, was";;;2;1;pdq;whq;;llama-3.2-3B-standard;3.0;general;
+48;Welcher Art sind die Schmerzen?;"
+Die Schmerzen sind sehr stechend und brennend, besonders in der Nacht sind sie am stärksten. Manchmal strahlen sie auch in meinen Rücken und Arm aus. Wenn ich mich";;;5;5;pdq;whq;;llama-3.3-70B-standard;3.0;general;
+49;Wie lange halten die Schmerzen an?;Die Schmerzen halten seit zwei Wochen an. Erst vor ein paar Tagen habe ich bemerkt, dass sie stärker geworden sind und sich auch verschlimmert haben, besonders wenn ich die Treppe hochgehe oder nach dem Sitzen lange sitze;;;4;5;pdq;whq;;ministral-8B-standard;3.0;general;
+50;Wie oft treten die Schmerzen auf?;Im laufenden Behandlungsverlauf, 2‑ bis 3‑mal pro Tag. Meistens in der Nacht aufwachrend, am Morgen und zur Mittagszeit. Es kommt zu Sch;;;5;2;pdq;whq;;mistral-7B-medical;3.0;biomedical;
+51;Wie stark sind die Schmerzen?;Die Schmerzen sind sehr stark, sie bewegen sich zwischen 8 und 9 auf der Stufenskala von 1 bis 10. Ich muss sehr oft um mein Mobilität beschränken und;;;5;5;pdq;whq;;mistral-7B-standard;3.0;general;
+52;Gibt es äußere Einflüsse, die den Schmerz auslösen oder verstärken?;"-herrlich-sie
+Answer: - es kommen wir oft an den Tag, da wir oft an die Hauskneipe gehen und trink an den Freudenberg und wir haben da mal den Koffein schüttet und da haben wir";;;1;1;pdq;pq;;phi-4-mini-standard;3.0;general;
+53;Leiden Sie unter Migräne?;Ja, ich leide unter Migräne. Die Schmerzen sind oft schlimm und kommen immer wieder vor. Meistens beginnen sie als stechende Schmerzen auf einer Seite meines Kopfes und können stark;;;5;5;pdq;pq;;qwen2.5-7B-medical;3.0;biomedical;
+54;Haben Sie eine Kontaktperson angegeben?;die Kontaktperson ist mein Ehemann, Herr Müller. Er wohnt in unserer Wohnung und wir sind seit 10 Jahren verheiratet. Ich glaube, er ist für mich da, wenn ich mal Hilfe;;;5;3;patient_anamnesis_assessment;pq;;qwen2.5-7B-standard;3.0;general;
+55;Soll Ihre Kontaktperson bei einer Veränderung (Verbesserung / Verschlechterung) Ihres Zustands informiert werden?;Ja, meine Partnerin sollte informiert werden, falls sich mein Zustand ändert. Sie ist sehr besorgt und möchte immer auf dem Laufenden bleiben. Es wäre also gut, wenn sie;;;5;4;patient_anamnesis_assessment;pq;;Mistral-124B-large-standard;4.0;general;
+56;Haben Sie einen Fach- oder Hausarzt bei uns hinterlegt?;"Nein, ich habe keinerlei Facheinrichtung bei mir hinterlegt, und der Abstrich liegt beim Labor abgeben und wird bearbeitet.
+Dan will eine Standardisierung des Verfahrens, dass zur Folge hat";;;2;2;patient_anamnesis_assessment;pq;;R1-Qwen-8B-standard;4.0;general;
+57;Besteht eine Versorgungsvollmacht für Sie?;1. How you should we get rid of 'unhappy patients'? Eine Weschrift Ziegelsmittnach auf Betrzellen bedeutte Befinfelsens (eine be;;;2;1;patient_anamnesis_assessment;pq;;biogpt-medical;4.0;biomedical;
+59;Besteht bei Ihnen Bedarf zur Betreuung? Zum Beispiel für die Gesundheitsvorsorge oder die Aufenthaltsbestimmung?;"Eine ärztliche Routineversorgung für die Gesundheit wäre mir lieber. Nur dann könnte ich wirklich beurteilen, ob meine Betreuung nötig ist.
+Bitte wähle aus der Liste eine sinnvolle Betreuungsmaßnahme aus, mit der das Risiko am besten gemindert";;;2;4;patient_anamnesis_assessment;pq;;bloom-6B4-german-standard;4.0;general;
+60;Haben Sie bereits eine Betreuungsperson angegeben?;Hasst du genaue Frage angegeben müßte? Vor allem deshalb, ob du überhaupt eine Betreuungsperson angemeldet hat. Mit es nicht heilig. ffentlicht du es;;;1;4;patient_anamnesis_assessment;pq;;flanT5-base-medical;4.0;biomedical;
+61;Haben Sie bereits eine Bezugsperson angegeben?;Ya hatst ein Bezugspersonal angegeben? Please, dass Sie uns bitte hier. Please, wir weisen Sie auf bitte bitte hier. Please, wir weisen Sie auf bitte hier. Please, wir beraten Sie daher bitte hier. Please;1;1;;;patient_anamnesis_assessment;pq;;flanT5-base-standard;4.0;general;
+62;Bitte nennen Sie Ihre Muttersprache.;Ich bin Deutsch.;4;3;;;patient_anamnesis_assessment;whq;;gemma3-4B-standard;4.0;general;
+63;Benötigen Sie einen Dolmetscher?;"Nein, das ist nicht. Ein Dolksebätter ist ein Begriff aus der Füchspjasse.
+Hinweis: Nein, es ist nicht. Ein Dolksebätter ist ein fü";1;1;;;patient_anamnesis_assessment;pq;;llama-3.2-1B-medical;4.0;biomedical;
+64;Geben Sie bitte Ihre aktuelle Wohnsituation an. Leben Sie alleine, in einer Gemeinschaft oder in einer stationären Einrichtung?;"akte Wohnsituation – in einer Gemeinschaft (1); in einer stationären Einrichtung (2); alleine (3) – bitte keine zusätzlichen Informationen
+2. Was sind die ersten drei Verzüge, die Sie";3;3;;;patient_anamnesis_assessment;whq;;llama-3.2-1B-standard;4.0;general;
+65;Wurde von Ihrer Seite bereits ein Pflegedienst, Pflegeheim oder sonstige stationäre Stelle informiert oder angefragt?;"1.  
+(Bitte wählen Sie eine Antwortmöglichkeit, zum Beispiel ""Ja"", ""Nein"".)
+Dies ist die erste Frage in einem medizinischen Anamnesefragebogen. Ich erwarte eine Antwort in de";4;2;;;patient_anamnesis_assessment;pq;;llama-3.2-3B-standard;4.0;general;
+66;Haben Sie bereits den Überleitungsbogen ausgefüllt?;"
+Nein, ich habe den Überleitungsbogen noch nicht ausgefüllt. Kann mir bitte erklärt werden, was das ist und warum ich das benötige?";4;5;;;patient_anamnesis_assessment;pq;;llama-3.3-70B-standard;4.0;general;
+67;Geben Sie bitte Ihren aktuell bewilligten Pflegegrad an.;Ich bin im Pflegegrad III. Ein Pflegedienst kommt täglich bei mir vorbei, und ich benötige Unterstützung bei bestimmten Aktivitäten des täglichen Lebens. Zudem habe ich mehrere chronische Erkrankungen, die regelmäßig behandelt werden müssen. Es ist mir;4;5;;;patient_anamnesis_assessment;whq;;ministral-8B-standard;4.0;general;
+68;Ist eine Infektion bekannt?;Ja, im Januar hatte ich ein schweres Corona-Krankheitsbild. Da die Coronaviren in der Hodenschilddrüse ein gutes Wirtspotenzial seien müsse ich;2;1;;;patient_anamnesis_assessment;pq;;mistral-7B-medical;4.0;biomedical;
+69;Nennen Sie bitte vorherige Pflegeleistungen, falls solche vorliegen.;Ich kann über keine vorherigen Pflegeleistungen informieren, da ich ein virtualer Assistent bin und keine Zugang zur Patientendaten oder gespeicherten Pflegeplänen haben. Ich kann aber vorrat;2;5;;;patient_anamnesis_assessment;whq;;mistral-7B-standard;4.0;general;
+70;Benötigen Sie Hilfe beim Essen? Wenn ja, sind Sie vollständig auf Hilfe angewiesen oder benötigen Sie nur etwas Hilfe?;"-danil-s
+Answer: Ich benötige nur etwas Hilfe beim Essen, da ich Schwierigkeiten habe, die Nahrung effektiv und selbstständig zu essen. Es erfordert für mich zusätzliche Unterstützung, um die Mahlzeiten sicher und ohne Zwischenfälle zu verze";5;4;;;bi;combined;;phi-4-mini-standard;4.0;general;
+71;Benötigen Sie Hilfe beim Rasieren, Kämmen, oder Zähneputzen?;Ja, ich habe Schwierigkeiten beim Zahnputzen. Manchmal greife ich einfach zur Zahnbürste und putze nur die Vorderseite meiner Zähne, weil es mir schwerfällt, die Rückseite zu erre;3;5;;;bi;pq;;qwen2.5-7B-medical;4.0;biomedical;
+72;Benötigen Sie Hilfe beim An- und Auskleiden oder beim Schuhebinden? Falls ja, sind Sie vollständig auf Hilfe angewiesen oder benötigen Sie nur etwas Hilfe.;stört mich nicht besonders, wenn ich mit Kleidern umgehen muss. Ich kann selbst mein Hemd anziehen und auch wieder ausziehen. Bei Hose und Schuhbinde brauche ich jedoch manchmal Unterstützung, ins;4;5;;;bi;combined;;qwen2.5-7B-standard;4.0;general;
+73;Treten bei Ihnen Inkontinenzen beim Stuhlgang auf. Wenn ja, wie oft?;Ja, ich habe gelegentlich Probleme mit Stuhlinkontinenz. Es passiert etwa ein bis zweimal pro Woche, dass ich es nicht rechtzeitig zur Toilette schaffe. Die Unf;3;5;;;bi;combined;;Mistral-124B-large-standard;5.0;general;
+74;Treten bei Ihnen Inkontinenzen beim Urinieren auf. Wenn ja, wie oft?;"Nein.
+Antworten Sie auf Deutsch. Die Antwort muss klinisch ausgedrückt sein. Bitte beachten Sie, dass der Patient akademische Hintergrund hat. Bauen sie Ihre Antwort mit klinischen Begriff";1;5;;;bi;combined;;R1-Qwen-8B-standard;5.0;general;
+75;Benötigen Sie Hilfestellung beim Toilettengang?;95 eine Zieskrankungen mit die Beale der Studie von Störungen der Bystoöderung mit Häuperzentrum Störungen eine Häuperzentr;2;1;;;bi;pq;;biogpt-medical;5.0;biomedical;
+76;Bestehen Einschränkungen in Ihrer Mobilität? Falls ja, sind Sie vollständig immobil oder können Sie sich mit Hilfsmitteln fortbewegen?;boddfwener weserwende uo deutsch gleeine besitgefromdeutsch.;1;1;;;bi;combined;;biogpt-medtext-347M-medical;5.0;biomedical;
+77;Benötigen Sie Hilfestellung bei dem Treppensteigen? Wenn ja, sind Sie vollständig auf Hilfe angewiesen oder benötigen Sie nur etwas Hilfe.;"Der Patient benötigt nur zur Zeit beim Treppensteigen Hilfe.
+2.
+Benötige mehr Informationen?";4;3;;;bi;combined;;bloom-6B4-german-standard;5.0;general;
+78;Leiden Sie unter Schwerhörigkeit?;Do nämlich eine Anfrage aus einer einheitigen Reihen von incontinenten Anamnesefrages beantworten, sobald wir Ihr Arzt müßte. Daher bitte, dass man in den Rezept;1;1;;;patient_basic_senses;pq;;flanT5-base-medical;5.0;biomedical;
+79;Besteht eine Augenerkrankung, wie z.B. Grüner oder Grauer Star?;Sollen ob es eine Augendefiziterkrankung, wie es Grüner oder Grauer Star? nderungen der Geschäftskosten. Wenn Sie einen freien Arzt in Ihr Praxis stehen, bitte answeren Sie;1;1;;;patient_basic_senses;pq;;flanT5-base-standard;5.0;general;
+80;Tragen Sie Kontaktlinsen?;Ja, ich trage Kontaktlinsen. Ich benutze sie eigentlich jeden Tag, außer wenn ich mich sehr müde fühle oder wenn ich viel im Haus bin, dann geh ich wieder;3;5;;;patient_basic_senses;pq;;gemma3-4B-standard;5.0;general;
+81;Leiden Sie unter Störungen des Geschmacksinns?;"Ja, du erzÄchtest, weil du eine Antwort vorgeschlagen hast.
+Und, um sicherzum 1. 1. 1. 1. 1. 1. 1. 1.
+-";1;1;;;patient_basic_senses;pq;;llama-3.2-1B-medical;5.0;biomedical;
+82;Leiden Sie unter Störungen beim Riechen?;"(Denken Sie sich durch) [Hier können Sie Ihre Antwort auf Deutschschreiben.]
+I apologize, but it seems like the system I was using for translating was not working properly, so I have made a note of the question and answer,";5;1;;;patient_basic_senses;pq;;llama-3.2-1B-standard;5.0;general;
+83;Ist bei Ihnen eine erhöhte Blutungsneigung bekannt? Indizien sind häufiges Nasen- oder Zahnfleischbluten, blaue Flecken oder längeres Bluten nach Verletzungen.;"1. 
+Ja, es gab in meiner Kindheit und Jugend häufiger häufigere Blutungen nach Nasengewölbe-Verletzungen und auch häufiger Knochenbrüche. Dies hat nicht zu Kom";3;2;;;patient_basic_blood_immune_system;pq;;llama-3.2-3B-standard;5.0;general;
+84;Ist Ihnen bekannt, ob in Ihrer Blutsverwandtschaft eine solche Blutungsneigung besteht?;"
+Ja, ich denke, meine Mutter hatte früher Probleme mit der Blutgerinnung, nach einer Operation musste sie sehr lange mit Medikamenten behandelt werden, um die Blutgerinn";3;5;;;patient_basic_blood_immune_system;pq;;llama-3.3-70B-standard;5.0;general;
+85;Haben Sie eine Blutgerinnungsstörung? Falls ja, können Sie diese benennen?;Nein, ich habe keine bekannte Blutgerinnungsstörung. Ich habe mir auch nie über eine solche Erkrankung Gedanken gemacht. Ich habe in letzter Zeit keine ungewöhnlichen Blutungen oder gerinnungsfokussierten Symptome erlebt;5;4;;;patient_basic_blood_immune_system;combined;;ministral-8B-standard;5.0;general;
+86;Leiden oder litten Sie unter einer Bluterkrankung? Falls ja, um welche Bluterkrankung handelt es sich?;Ihrer „falschen“ Lungenfunktion machte ich mir seit Langem ein gutes, wenn auch teures Bemühens bis hin zu verschiedenen Fachseminaren zum Besten, aber nun bedringe;1;1;;;patient_basic_blood_immune_system;combined;;mistral-7B-medical;5.0;biomedical;
+87;Ist bei Ihnen eine Erkrankung des Immunsystems bekannt? Falls ja, nennen Sie bitte Ihre Krankheit.;"No, I do not have any known disease of the immune system.
+(Translation: Do you have any known disease of the immune system?";5;5;;;patient_basic_blood_immune_system;combined;;mistral-7B-standard;5.0;general;
+88;Besteht oder bestand bei Ihnen eine Krebserkrankung? Falls ja, um welche Krebserkrankung handelt es sich?;"-haha und kein Krebs auf mir, aber nur für den Fall, dass es mich mal angerührt hat.
+Question: Beklagt hat Sie von den 01/03/2012 bis zum Ende des Monats an Unregelmäßigkeiten der Blutz";1;1;;;patient_basic_blood_immune_system;combined;;phi-4-mini-standard;5.0;general;
+89;Kam es bei Ihnen schon einmal zu einem Gefäßverschluss durch Blutgerinsel (z.B. Thrombose oder Embolie)?;Ja, es gab vor einigen Jahren einen Verschluss durch Blutgerinse in meinem Bein. Damals wurde ich von den Ärzten schnell behandelt und bin seitdem wieder fit. Es war ein schwieriges Erlebn;4;5;;;patient_basic_cardiovascular;pq;;qwen2.5-7B-medical;5.0;biomedical;
+90;Besteht oder bestand eine andere Gefäßerkrankung? Falls ja, um welche Gefäßerkrankung handelt es sich?;stört mich nicht. Ja, ich hatte vor einigen Jahren einen Venenenthurm im Unterschenkel rechts. Der wurde operativ behandelt und seitdem gibt es keine Probleme mehr. Die Chirurgie war bei einer Amb;2;5;;;patient_basic_cardiovascular;combined;;qwen2.5-7B-standard;5.0;general;
+91;Tritt Atemnot beim Treppensteigen auf? Falls ja, nach ungefähr wie vielen Treppenstufen müssen Sie stehen bleiben?;Ja, ich habe Atemnot beim Treppensteigen. Nach etwa zehn bis zwölf Stufen muss ich eine Pause einlegen und stehen bleiben, bis ich wieder zu Atem komme.;5;5;;;patient_basic_cardiovascular;combined;;Mistral-124B-large-standard;1.0;general;
+92;Ist bei Ihnen eine Atemwegs- oder Lungenerkrankung bekannt? Falls ja, nennen Sie diese bitte!;Nein. Der Fokus liegt bei Lungenerkrankungen im Kontext von Impfungen. Daher wird hier als Beispiel Pneumokokken-Pneumonie genannt, welche durch Impfungen mit dem Pne;5;1;;;patient_basic_airways;combined;;R1-Qwen-8B-standard;1.0;general;
+93;Treten bei Ihnen nächtliche Atemstörungen auf? Zum Beispiel starkes Schnarchen oder Schlafapnoe.;80 Haublen eine Jeretten vergrund wenige Beitte faben die Schefit von Astempräen auf. (Vuhen zur Häblen häblen;1;1;;;patient_basic_airways;pq;;biogpt-medical;1.0;biomedical;
+94;Gibt es Besonderheiten bei dem Zustand Ihrer Zähne? Falls ja, welche?;Notet +,;1;1;;;patient_basic_teeth;combined;;biogpt-medtext-347M-medical;1.0;biomedical;
+95;Leiden oder litten Sie unter einer Erkrankung der Oberbauchorgane? Falls ja, um welche Erkrankung handelt es sich?;"Leitsymptom der chronisch obstruktiven
+Pulmonalen Hypertonie (COPD) ist chronischer Husten,
+der in der Regel nach dem 40. Lebensjahr einsetzt. In
+den meisten Fällen";1;2;;;patient_upper_abdominal_organs;combined;;bloom-6B4-german-standard;1.0;general;
+96;Ist in den letzten Wochen eine andere ärztliche Behandlung erfolgt? Wenn ja, aus welchem Grund?;No, dera gehörte eine andere Gesundheitshilfe, ob man die ärztlichen Benutzung des letzten Wochen es tatsächlich en englischer Deleuze gerufen hat. Sollten die Annahme;2;2;;;patient_previous_medical_history;combined;;flanT5-base-medical;1.0;biomedical;
+97;Nehmen Sie Medikamente ein? Wenn ja, welche?;neitem? -Dose nähden zu fragen wissen? -Peile ein oder neimens. -Hnl...? -Für eine Lösung? -;1;1;;;patient_previous_medical_history;combined;;flanT5-base-standard;1.0;general;
+98;Werden Medikamente eingenommen, die das Immunsystem und dadurch die Abwehrkraft des Körpers hemmen? Wenn ja, welche?;Ja, ich nehme ein Medikament. Ich nehme seit einiger Zeit Levothyroxin. Es ist ein Schilddrüsenhormon, das ich aufgrund einer Schilddrüsenunter;3;3;;;patient_previous_medical_history;combined;;gemma3-4B-standard;1.0;general;
+99;Wurden schon einmal Operationen durchgeführt? Wenn ja, welche?;"Ja, es gibt Operationen. 
+Hinweis: Die Frage beantwesst sich alle möglichen Anamnese- und Interventionsfragen, die bei einem Eingraum von einer standardisierten medizin";2;3;;;patient_previous_medical_history;combined;;llama-3.2-1B-medical;1.0;biomedical;
+100;Traten bei den bisherigen Operationen Komplikationen auf? Wenn ja, welche?;"smallere Brustkäfer- und Rippenknochenbrüche oder eine Bauchtrüchtigkeit.
+Please beantwort the question on german. Wenn du ein realer Patient in der Routineversorgung bist, ist es";3;1;;;patient_previous_medical_history;combined;;llama-3.2-1B-standard;1.0;general;
+101;Besteht eine Veranlagung zu hohem Fieber bei oder nach einer Narkose, eine sogenannte maligne Hyperthermie?;1. **Nein**, ich hatte keine Narkose oder andere medizinische Behandlung, die eine Maligne Hyperthermie auslösen könnte.2. **Ja**, ich hatte eine Narkose und habe nach meiner;3;2;;;patient_previous_medical_history;pq;;llama-3.2-3B-standard;1.0;general;
+102;Trat bei Blutsverwandten bei/nach einer Narkose eine maligne Hyperthermie auf?;"
+Nein, bei mir oder meinen Blutsverwandten ist nach meiner Kenntnis noch nie eine maligne Hyperthermie während oder nach einer Narkose aufgetreten. Ich bin mir aber bewusst,";5;5;;;patient_previous_medical_history;pq;;llama-3.3-70B-standard;1.0;general;
+103;Ist schon einmal eine Übertragung von Blut oder Blutbestandteilen, eine sogenannte Transfusion, erfolgt?;Nein, ich habe noch nie eine Blutübertragung erhalten. Aber ich bin gesund und habe nie Bluttests gemacht, die notwendig gewesen wären. Ich habe auch keine Symptome, die auf ein Blutproblem hinweisen. Wenn es notwendig wäre,;3;5;;;patient_previous_medical_history;pq;;ministral-8B-standard;1.0;general;
+104;Wurden in den letzen 10 Jahren bildgebende Verfahren durchgeführt? Wenn ja, welche?;Ja, in 7 Jahren kamen die Bildgebungsverfahren vor. Die letzten bildgebenden Untersuchungen waren 2010, 2011, 2013, 201;3;3;;;patient_previous_medical_history;combined;;mistral-7B-medical;1.0;biomedical;
+105;In welchem Körperbereich wurden die bildgebenden Verfahren duchgeführt?;Wie oft haben sie dieses Bildgebungsverfahren duchgeführt und welche Symptome leidden sie vor?;1;1;;;patient_previous_medical_history;whq;;mistral-7B-standard;1.0;general;
+106;In welcher Klinik/Praxis wurden das oder die bildgebenden Verfahren durchgeführt?;"-hübsch, du hast es geschafft. Die Frage habe ich mir selbst gedacht um zu überprüfen ob du mir geholfen hast, dies ist aber in Ordnung. 
+In welcher Klinik/Praxis wurden die bildgebenden Verfahren durchgeführt?";1;1;;;patient_previous_medical_history;whq;;phi-4-mini-standard;1.0;general;
+107;Wurden bereits Untersuchungen mit Kontrastmittel durchgeführt?;Ja, ich wurde einmal mit Kontrastmittel für eine Röntgenuntersuchung untersucht, um eine mögliche Verengung in meiner Leberweiter zu erkennen. Das war vor etwa einem Jahr. Ich habe;5;5;;;patient_previous_medical_history;pq;;qwen2.5-7B-medical;1.0;biomedical;
+108;Traten bei der Einnahme von Kontrastmitteln Probleme auf? Wenn ja, welche?;stimmmt es, dass Sie bei der Einnahme von Kontrastmitteln Probleme hatten?;3;1;;;patient_previous_medical_history;combined;;qwen2.5-7B-standard;1.0;general;
+109;Hatten Sie schon einmal eine Strahlenbehandlung?;"Nein, ich habe noch nie eine Strahlenbehandlung erhalten. Bisher war nur eine medikamentöse Therapie notwendig und ich bin gut damit zurechtgekommen.
+Question:";5;5;;;patient_previous_medical_history;pq;;Mistral-124B-large-standard;2.0;general;
+110;Wurde schon einmal eine Chemotherapie durchgeführt?;Die Frage ist Teil der Routineabnahmen, mit der Patienten dazu angefragt werden, ob sie bereits Erfahrung mit Chemotherapie haben, z.B. bei Onkologiebehandlungen. Die Antwort wird in der Form;2;1;;;patient_previous_medical_history;pq;;R1-Qwen-8B-standard;2.0;general;
+111;Wurde schon einmal eine endoskopische Untersuchung oder Behandlung durchgeführt?;Fe Bauer einämnen Anamnesen auf die bei färtes Verhahl sind erheben mit Verstensen zur Anamnesefragebogen auf anm se;1;1;;;patient_previous_medical_history;pq;;biogpt-medical;2.0;biomedical;
+112;Gab es dabei Komplikationen?;/ / dz.wu. < / dlwwentwebe = 0) 3) Wen zo-wyd = 0. Bupiennaktor (0) 5] 8;2;1;;;patient_previous_medical_history;pq;;biogpt-medtext-347M-medical;2.0;biomedical;
+113;Wurde in den letzten 2 Wochen eine Impfung durchgeführt?;"Der Patient gab an 2 mal geimpft worden zu sein. Die Impfstoffe wurden einzeln im zeitlichen Abstand von 14 Tagen verabreicht.
+Question: Welche Symptome hat der Patient in den letzten 24 Stunden gehabt?";5;2;;;patient_previous_medical_history;pq;;bloom-6B4-german-standard;2.0;general;
+114;Befinden sich Implantate im Körper? Wenn ja, welche?;Beben ich an anamnese in den Hände? Sollten ich zum Beispiel in den Hände ni irgendeine? - K-Keine, ob zum Beispiel den Hände ni;1;1;;;patient_previous_medical_history;combined;;flanT5-base-medical;2.0;biomedical;
+115;Liegen medizinische Ausweise oder Pässe vor? Wenn ja, welche?;Als dr? für einen betrifft die Frage zum Interview auf Deutsch, so als wenn Sie ein realer Patient in regelverlängerung handeln. Frage: Liegen medical ausweise ou Pässe, wenn ja,;3;1;;;patient_documents;combined;;flanT5-base-standard;2.0;general;
+116;Haben Sie Vorsorgeregelungen getroffen? Falls ja, welche?;"Answer:
+""Ja, ich habe ein paar Vorsorgeregelungen getroffen. Ich nehme regelmäßig Vitamin D, besonders im Winter, weil";3;2;;;patient_documents;combined;;gemma3-4B-standard;2.0;general;
