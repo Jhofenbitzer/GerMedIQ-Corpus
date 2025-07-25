@@ -1,0 +1,12 @@
+# Paths
+csv_input_path: ../../CorpusFiles/GerMedIQ-Human.csv"
+output_dir: "../../CorpusFiles/GerMedIQ-LLM-NEW.csv"
+
+# Generation parameters
+max_input_length: 300
+max_new_tokens: 50
+min_new_tokens: 1
+padding: "max_length"
+
+# Environment vars
+pytorch_cuda_alloc_conf: "expandable_segments:True"
