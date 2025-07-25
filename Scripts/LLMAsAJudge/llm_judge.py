@@ -32,7 +32,7 @@ import yaml
 
 # Load configuration from config.yml
 with open(
-    "/home/hofenbitzer/datasets/germediq/scripts/github/judge/config.yml",
+    "config.yml",
     "r",
     encoding="utf-8",
 ) as _f:
