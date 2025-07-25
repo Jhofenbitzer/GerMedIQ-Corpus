@@ -1,6 +1,6 @@
 # Paths
-csv_input_path: "../../"
-output_dir: ""
+csv_input_path: "../../CorpusFiles/HelperFiles/all_responses_cleaned.csv"
+output_dir: "../Judgments/LLM/LLM-Judgments-NEW.csv"
 
 # Generation parameters
 max_input_length: 300
