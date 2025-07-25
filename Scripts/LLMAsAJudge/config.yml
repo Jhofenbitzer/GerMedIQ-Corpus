@@ -1,0 +1,11 @@
+# Paths
+csv_input_path: "../../"
+output_dir: ""
+
+# Generation parameters
+max_input_length: 300
+max_new_tokens: 50
+min_new_tokens: 1
+
+# Environment vars
+pytorch_cuda_alloc_conf: "expandable_segments:True"
