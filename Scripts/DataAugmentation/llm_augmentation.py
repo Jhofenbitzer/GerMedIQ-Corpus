@@ -29,7 +29,7 @@ import yaml
 
 # Load configuration from config.yml
 with open(
-    "/home/hofenbitzer/datasets/germediq/scripts/github/zeroshot/config.yml",
+    "config.yml",
     "r",
     encoding="utf-8",
 ) as _f:
