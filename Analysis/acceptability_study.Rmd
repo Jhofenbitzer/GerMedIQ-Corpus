@@ -1,0 +1,536 @@
+---
+title: "acceptability_study"
+author: "Justin Hofenbitzer"
+date: "2025-07-26"
+output: html_document
+---
+
+# Preamble
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(broom.mixed)
+library(ggplot2)
+library(irr)         
+library(irrCAC)   
+library(krippendorffsalpha)
+library(lmerTest)
+library(lme4)
+library(parallel)
+library(pbapply)
+library(psych)  
+library(rater) 
+library(tidyverse)   
+```
+
+# Load the data
+```{r}
+df_llm <- read_csv("../Judgments/LLM/HelperFiles/LLM-judgments_reshaped.csv",
+  na = "<EDIT-NO-JUDGEMENT>")
+
+df_human <- read_csv2("../Judgments/Human/Human-Judgments.csv",
+  na = "<EDIT-NO-JUDGEMENT>")
+```
+
+# Preprocess the LLM data
+```{r}
+# Clean the dataframe
+df_llm <- df_llm %>%
+  mutate(
+    id = as.factor(id),
+    across(matches("standard|medical", ignore.case = TRUE), as.numeric),
+    # Remove all invalid ratings
+    across(where(is.numeric), ~ replace(.x, .x > 5, NA_real_)),
+    across(where(is.numeric), ~ replace(.x, .x < 1, NA_real_)),
+    size_model = as.factor(case_when(
+      str_detect(model, "70B|124")              ~ "large",
+      str_detect(model, "7B|8B|6B|4B|3B|phi")   ~ "medium",
+      str_detect(model, "flanT5|biogpt|1B")     ~ "small",
+      TRUE                                            ~ "human"
+    )))
+
+# Mapping dfs
+meta_cols <- c("id","question","response","questionnaire",
+               "question_type","model","model_domain")
+rating_cols <- setdiff(names(df_llm), meta_cols)
+
+# Remove all items with less than 2 ratings
+df_clean_llm <- df_llm %>%
+  filter(rowSums(!is.na(select(., all_of(rating_cols)))) >= 2)
+
+# Transpose the data to long
+meta_vars <- c("question_type", "questionnaire", "model", "model_domain", "size_model", "size_judge", "rater", "rater_domain")
+domain_map <- df_clean_llm %>%
+  select(model, model_domain) %>%
+  distinct()
+
+# Transpose df to long
+rating_long_llm <- df_clean_llm %>%
+  pivot_longer(
+    cols      = where(is.numeric),
+    names_to  = "rater",
+    values_to = "rating"
+  ) %>%
+  mutate(size_judge = as.factor(case_when(
+      str_detect(rater, "70B|124")              ~ "large",
+      str_detect(rater, "7B|8B|6B|4B|3B|phi")   ~ "medium",
+      str_detect(rater, "flanT5|biogpt|1B")     ~ "small",
+      TRUE                                            ~ "human"
+    ))) %>%
+  left_join(domain_map,
+            by = c("rater" = "model")) %>%
+  rename(rater_domain = model_domain.y,
+         model_domain = model_domain.x) 
+
+# Binarize the data
+rating_long_binary_llm <- rating_long_llm %>%
+  mutate(
+    across(where(is.numeric), ~ replace(.x, .x < 4, 0)),
+    across(where(is.numeric), ~ replace(.x, .x > 3, 1))
+  )
+
+# Refactor the binarized data for further processing
+refs_domain <- c(
+  model_domain   = "human",
+  model          = "human",
+  question_type  = "pq",
+  size_model           = "small",
+  size_judge = "small"
+)
+
+df_complete_llm <- na.omit(rating_long_binary_llm[, c(meta_vars, "rating", "id")]) %>%
+  mutate(
+    model_domain = fct_relevel(model_domain, "human"),
+    model        = fct_relevel(model,        "human"),  
+    question_type = fct_relevel(question_type, "pq"),
+    across(
+      all_of(names(refs_domain)),
+      ~ relevel(.x, ref = refs_domain[cur_column()])
+    )
+  )
+```
+
+# Configure different GLMERs and compare their fit
+```{r}
+# Intercept Only
+bim0 <- glmer(rating ~ 1 + (1 | id) + (1 | rater), data   = df_complete_llm, family = binomial(link = "logit"))
+# Adding fixed effects
+bim1 <- update(bim0, . ~ . + question_type + model_domain + size_model + size_judge + rater_domain)
+# Adding 2-way interactions between the domains and the sizes
+bim2 <- update(bim1, . ~ . + model_domain:rater_domain + size_model:size_judge) 
+# Adding more interactions
+bim3 <- update(bim1, . ~ ., + model_domain:rater_domain:size_model:size_judge)
+anova(bim0, bim1, bim2, bim3) # Winner: bim2
+```
+## Inspect the winning GLMER
+```{r}
+bim2 <- glmer(rating ~ + question_type + model_domain*rater_domain + size_model*size_judge + (1 | id) + (1 | rater), data   = df_complete_llm, family = binomial(link = "logit"))
+summary(bim2)
+```
+
+## Create DF containing the odd ratios of the model
+```{r}
+df_or_llm <- tidy(bim2, effects = "fixed", conf.int = TRUE) %>%
+  mutate(
+    OR       = exp(estimate),
+    OR_low   = exp(conf.low),
+    OR_high  = exp(conf.high)
+  )
+
+df_or_llm
+```
+
+# Plot the results
+## Preprocess the data for plotting
+```{r}
+# Custom mapping:
+model_domain_labels <- c(
+  human       = "Human Resp.",
+  general     = "General Resp.",
+  biomedical  = "Biomedical Resp."
+)
+rater_domain_labels <- c(
+  human       = "Human Raters",
+  general     = "General LLM Judges",
+  biomedical  = "Biomedical LLM Judges"
+)
+
+# Add mean and standard error values and refactor for plotting
+df_summary_llm <- df_complete_llm %>%
+  group_by(size_model, size_judge, model_domain, rater_domain) %>%
+  summarise(
+    mean_rating = mean(rating, na.rm = TRUE),
+    se = sd(rating, na.rm = TRUE) / sqrt(n())
+  ) %>%
+  mutate(size_model = factor(size_model,
+                       levels = c("small","medium","large", "human")),
+         size_judge = factor(size_judge,
+                             levels = c("small", "medium", "large")),
+         model_domain = factor(model_domain,
+                               levels = c("human", "biomedical", "general")))
+```
+
+## Plot the data
+```{r}
+# Create a dodge
+pd <- position_dodge(width = 0.6, preserve = "single")
+
+# Plot
+llm_judgments_plot <- ggplot(
+  data = df_summary_llm %>%
+    filter(!(rater_domain == "biomedical" & size_judge == "large")) %>%
+    droplevels(),
+  aes(x = size_judge, y = mean_rating, fill = size_model)
+) +
+  geom_col(
+    position = pd,
+    width    = 0.7,
+    colour   = "black"
+  ) +
+  geom_errorbar(
+    aes(ymin = mean_rating - se,
+        ymax = mean_rating + se),
+    position = pd,
+    width    = 0.3,
+    size     = 0.6
+  ) +
+  facet_grid(
+    rater_domain ~ model_domain,
+    scales = "free_x",    
+    space  = "free_x",    
+    drop   = TRUE,
+    labeller = labeller(
+      model_domain = model_domain_labels,
+      rater_domain = rater_domain_labels
+    )
+  ) +
+  scale_x_discrete(drop = TRUE) +   
+  scale_fill_brewer(
+    palette = "Set2",
+    breaks  = c("small", "medium", "large", "human")
+  ) +
+  labs(
+    x    = "Judge Size",
+    y    = "Mean Rating",
+    fill = "Model Size \n(and 'human')"
+  ) +
+  theme_minimal() +
+  theme(
+    # Axis titles
+    axis.title.x = element_text(size = 8),  
+    axis.title.y = element_text(size = 8),
+    # Axis tick labels
+    axis.text.x  = element_text(size = 8),
+    axis.text.y  = element_text(size = 8),
+    # Legend title & items
+    legend.title = element_text(size = 8),
+    legend.text  = element_text(size = 6)
+  )
+
+llm_judgments_plot
+```
+
+
+# Preprocess the Human Data
+```{r}
+df_human <- df_human %>%
+  select(-participant_id, -run) %>%
+  mutate(
+    id = as.factor(id),
+    across(matches("standard|medical", ignore.case = TRUE), as.numeric),
+    across(where(is.numeric), ~ replace(.x, .x > 5, NA_real_)),
+    across(where(is.numeric), ~ replace(.x, .x < 1, NA_real_)),
+    size_model = as.factor(case_when(
+      str_detect(model, "70B|124")              ~ "large",
+      str_detect(model, "7B|8B|6B|4B|3B|phi")   ~ "medium",
+      str_detect(model, "flanT5|biogpt|1B")     ~ "small",
+      TRUE                                            ~ "human"
+    ))) %>%
+  select(where(~ !all(is.na(.))))
+
+meta_cols <- c("id","question","response","questionnaire",
+               "question_type","model","model_domain", "size_model", "participant_id")
+rating_cols <- setdiff(names(df_human), meta_cols)
+
+df_clean_human <- df_human %>%
+  filter(rowSums(!is.na(select(., all_of(rating_cols)))) >= 2)
+
+# 0. your meta‐columns
+meta_vars <- c("question_type", "questionnaire", "model", "model_domain", "size_model", "rater")
+
+# 1. pivot once
+rating_long_human <- df_clean_human %>%
+  pivot_longer(
+    cols      = where(is.numeric),
+    names_to  = "rater",
+    values_to = "rating"
+  ) %>%
+  mutate(size_judge = as.factor(case_when(
+      str_detect(rater, "70B|124")              ~ "large",
+      str_detect(rater, "7B|8B|6B|4B|3B|phi")   ~ "medium",
+      str_detect(rater, "flanT5|biogpt|1B")     ~ "small",
+      TRUE                                            ~ "human"
+    )))
+
+rating_long_binary_human <- rating_long_human %>%
+  mutate(
+    across(where(is.numeric), ~ replace(.x, .x < 4, 0)),
+    across(where(is.numeric), ~ replace(.x, .x > 3, 1))
+  )
+
+refs_domain <- c(
+  model_domain   = "human",
+  model          = "human",
+  question_type  = "pq",
+  size_model           = "small"
+)
+df_complete_human <- na.omit(rating_long_binary_human[, c(meta_vars, "rating", "id")]) %>%
+  mutate(
+    model_domain = fct_relevel(model_domain, "human"),
+    model        = fct_relevel(model,        "human"),   # if you also have a "model" factor with a "human" level
+    question_type = fct_relevel(question_type, "pq"),
+    across(
+      all_of(names(refs_domain)),
+      ~ relevel(.x, ref = refs_domain[cur_column()])
+    )
+  )
+```
+
+# Configure different GLMERs and test their fit
+```{r}
+# Intercept Only
+bim0_h <- glmer(rating ~ 1 + (1 | id) + (1  | rater), data   = df_complete_human, family = binomial(link = "logit"))
+# Adding fixed effects
+bim1_h <- update(bim0_h, . ~ . + question_type + model_domain + size_model) # winner
+
+# # Adding 2-way interactions between the domains and the sizes
+bim2_h <- update(bim1_h, . ~ . + model_domain:size_model + model_domain:question_type + question_type:size_model) 
+# # Adding more interactions
+bim3_h <- update(bim1_h, . ~ ., + model_domain:question_type:size_model)
+anova(bim0_h, bim1_h, bim2_h, bim3_h) # Winner: bim1
+```
+
+## Inspect the winning model
+```{r}
+bim1_h <- glmer(rating ~ question_type + model_domain + size_model + (1 | id) + (1  | rater), data   = df_complete_human, family = binomial(link = "logit"))
+summary(bim1_h)
+```
+## Create a df with OR
+```{r}
+df_or_human <- tidy(bim1_h, effects = "fixed", conf.int = TRUE) %>%
+  mutate(
+    OR       = exp(estimate),
+    OR_low   = exp(conf.low),
+    OR_high  = exp(conf.high)
+  )
+
+df_or_human
+```
+
+
+# Plot the results
+## Preprocess the data for plotting
+```{r}
+# Custom facet labels
+model_domain_labels <- c(
+  human      = "Human Resp.",
+  general    = "General Resp.",
+  biomedical = "Biomedical Resp."
+)
+
+# Summarise your data
+df_summary_human <- df_complete_human %>%
+  group_by(size_model, model_domain) %>%
+  summarise(
+    mean_rating = mean(rating, na.rm = TRUE),
+    se          = sd(rating, na.rm = TRUE) / sqrt(n()),
+    .groups     = "drop"
+  ) %>%
+  mutate(
+    size_model   = factor(size_model,
+                          levels = c("small","medium","large","human")),
+    model_domain = factor(model_domain,
+                          levels = c("human","biomedical","general"))
+  )
+
+human_df <- df_summary_human %>% filter(size_model == "human")
+bar_df   <- df_summary_human %>% filter(size_model %in% c("small","medium", "large"))
+```
+
+## Plot the data
+```{r}
+human_mean <- human_df$mean_rating
+human_sd   <- human_df$se
+
+pd <- position_dodge(width = 0.6, preserve = "single")
+
+per_m_plot <- ggplot(bar_df,
+       aes(x     = model_domain,
+           y = mean_rating,
+           fill  = size_model)) +
+  # bars + errorbars
+  geom_col(position = pd, width = 0.6, colour = "black") +
+  geom_errorbar(aes(ymin = mean_rating - se,
+        ymax = mean_rating + se),
+                position = pd,
+                width    = 0.2,
+                size     = 0.5) +
+  
+  # human line, mapped to linetype = "Human"
+  geom_hline(aes(yintercept = human_mean,
+                 linetype   = "Human"),
+             size       = 0.8,
+             colour     = "black",
+             show.legend = TRUE) +
+  
+  # shading for human ± SD (optional)
+  # annotate("rect",
+  #          xmin  = -Inf, xmax = Inf,
+  #          ymin  = human_mean - human_sd,
+  #          ymax  = human_mean + human_sd,
+  #          alpha = 0.1,
+  #          fill  = "black") +
+  
+  # fills for small/medium/large
+  scale_fill_brewer(name   = "Model Size",
+                    palette= "Set2",
+                    breaks = c("small","medium","large")) +
+  # line‐type for Human, same legend title
+  scale_linetype_manual(name   = "Baseline",
+                        values = c(Human = "dotted")) +
+  
+  # put fill keys first, line key last
+  guides(fill     = guide_legend(order = 1),
+         linetype = guide_legend(order = 2)) +
+  
+  labs(x    = "Model Domain",
+       y    = "Average Rating by Humans") +
+  theme_minimal()
+
+ggsave("/Users/justin/Documents/TUM/research/datasets/GerMedIQ-Corpus-Private/figures/per_human_judge_figure.pdf", width = 5, height = 4)
+
+per_m_plot
+```
+
+
+# Combine LLM & Human Dataframes
+```{r}
+meta_cols <- c("id","question","response","questionnaire","question_type","model","model_domain","size_model")
+
+# Join the two dataframes
+df_merged_wide <- full_join(
+  df_clean_llm %>% rename_with(~ paste0(.x),    -all_of(meta_cols)),
+  df_clean_human %>% rename_with(~ paste0(.x), -all_of(meta_cols)),
+  by = meta_cols
+)
+```
+
+### Transpose the data to long and binarize the ratings
+```{r}
+meta_vars <- c("question_type", "questionnaire", "model", "model_domain", "size_model", "size_judge", "rater", "rater_domain")
+
+# Create a mapping table for the long format
+domain_map <- df_merged_wide %>%
+  select(model, model_domain) %>%
+  distinct()
+
+# Transpose the df to long
+rating_long <- df_merged_wide %>%
+  pivot_longer(
+    cols      = where(is.numeric),
+    names_to  = "rater",
+    values_to = "rating"
+  ) %>%
+  mutate(size_judge = as.factor(case_when(
+      str_detect(rater, "70B|124")              ~ "large",
+      str_detect(rater, "7B|8B|6B|4B|3B|phi")   ~ "medium",
+      str_detect(rater, "flanT5|biogpt|1B")     ~ "small",
+      TRUE                                            ~ "human"
+    ))) %>%
+  left_join(domain_map,
+            by = c("rater" = "model")) %>%
+  rename(rater_domain = model_domain.y,
+         model_domain = model_domain.x)  %>%
+  mutate(rater_domain = as.factor(case_when(str_detect(rater, "rating") ~ "human",
+                                            TRUE ~ as.character(rater_domain))),
+         rater = as.factor(case_when(str_detect(rater, "rating") ~ "human",
+                                      TRUE ~ as.character(rater))))
+
+# Binarize the ratings
+rating_long_binary <- rating_long %>%
+  mutate(
+    across(where(is.numeric), ~ replace(.x, .x < 4, 0)),
+    across(where(is.numeric), ~ replace(.x, .x > 3, 1))
+  )
+
+rater_model_binary_best <- rating_long_binary %>%
+  group_by(rater, model) %>%
+  summarise(
+      percentage_good = mean(rating == 1, na.rm = TRUE) * 100,
+    .groups     = "drop"
+  ) %>%
+  # Spread models out to columns
+  pivot_wider(
+    names_from  = model,
+    values_from = percentage_good
+  ) %>%
+  # Turn the wide table back into (rater, model, percentage_good) rows
+  pivot_longer(
+    cols = -rater,
+    names_to  = "model",
+    values_to = "percentage_good"
+  ) %>%
+  # Get overview data
+  group_by(rater) %>%
+  summarise(
+    best_model       = model[which.max(percentage_good)],
+    best_percentage  = max(percentage_good, na.rm = TRUE),
+    worst_model      = model[which.min(percentage_good)],
+    worst_percentage = min(percentage_good, na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  # Find best and worst models
+  pivot_longer(
+    cols = c(best_model, best_percentage, worst_model, worst_percentage),
+    names_to = c("extreme", ".value"),
+    names_pattern = "(best|worst)_(.*)"
+  ) %>%
+  mutate(
+    extreme = factor(extreme, levels = c("best", "worst"),
+                     labels = c("Best", "Worst"))
+  )
+```
+
+# Create a Leaderboard: Which models were rated most consistently as "best" or "worst"?
+```{r}
+leaderboard_df <- rater_model_binary_best %>%
+  group_by(extreme, model) %>%
+  summarise(
+    count  = n(),
+    voters = str_c(rater, collapse = ", "),
+    .groups = "drop"
+  ) %>%
+  group_by(extreme) %>%
+  slice_max(order_by = count, n = 2) %>%
+  ungroup()
+
+leaderboard_df
+```
+
+## Check whether models voted for themselves
+```{r}
+self_vote_df <- rater_model_binary_best %>%
+  # keep only rows where the rater picked itself
+  filter(model == rater) %>%
+  # count how many times each model did that, separately for Best vs Worst
+  count(extreme, model, name = "self_vote_count") %>%
+  ungroup()
+
+self_vote_df
+```
+
+
+
+
