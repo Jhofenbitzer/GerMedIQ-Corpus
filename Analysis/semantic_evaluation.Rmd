@@ -1,0 +1,302 @@
+---
+title: "semantic_evaluation"
+author: "Justin Hofenbitzer"
+date: "2025-07-26"
+output: html_document
+---
+
+# Preamble
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(effsize) 
+library(emmeans)
+library(ggeffects)
+library(ggplot2)
+library(ggraph)
+library(hrbrthemes)
+library(lmerTest)
+library(performance)
+library(pheatmap)
+library(rstatix) 
+library(sjPlot)
+library(tidyverse)
+```
+
+# Look at the Within-Similarity
+## Load the dataset
+```{r}
+similarity_per_question <- read_csv("../EvaluationResults/SemanticEvaluation/similarity_results_centroid_internal.csv")
+```
+
+## Prepare the dataframe
+```{r}
+# Assign default values to relevant variables
+refs_domain <- c(
+  model_domain   = "human",
+  model          = "human",
+  question_type  = "pq",
+  size           = "small"
+)
+
+# Create the "within similarity" dataframe
+df_within <- similarity_per_question %>%
+  # Assign macro labels for the models sizes
+  mutate(
+    size = as.factor(case_when(
+      str_detect(model, "70B|124")              ~ "large",
+      str_detect(model, "7B|8B|6B|4B|3B|phi")   ~ "medium",
+      str_detect(model, "flanT5|biogpt|1B")     ~ "small",
+      TRUE                                            ~ "human"
+    )),
+    question_type = as.factor(question_type)
+  ) %>%
+  filter(model_domain %in% c("human", "general", "biomedical")) %>%
+  mutate(
+    model_domain = fct_relevel(model_domain, "human"),
+    model        = fct_relevel(model,        "human"),  
+    across(
+      all_of(names(refs_domain)),
+      ~ relevel(.x, ref = refs_domain[cur_column()])
+    )
+  )
+```
+
+## Configure different LMER and compare their fit
+```{r}
+# Intercept Only LMER (Baseline Model)
+within_m0 <- lmer(pairwise_mean_micro ~ 1 + (1 + question_type | model) + (1 | quid), df_within, REML=F)
+# Adding main effects
+within_m1 <- update(within_m0, . ~ . + question_type + model_domain + size) ### Winner!
+# Adding two way interaction only between model_domain and size
+within_m11 <- update(within_m1, . ~ . + model_domain:size) # Is theoretically more sound, but also more complex. Take m1.
+# Adding two-way interactions
+within_m2 <- update(within_m11, . ~ . + question_type:model_domain + question_type:size)
+# Adding three-way interactions
+within_m3 <- update(within_m2, . ~ . + question_type:model_domain:size)
+
+# Compare the models
+anova(within_m0, within_m1, within_m11, within_m2, within_m3)
+```
+
+### Inspect the winning LMER
+```{r}
+within_m1 <- lmer(pairwise_mean_micro ~ question_type + model_domain + size + (1 | quid) + (1 + question_type | model), df_within, REML=F)
+summary(within_m1)
+```
+
+## Plot the results
+### Prepare the data for plotting
+
+```{r}
+# Extract mean and sd values
+df_sd <- model.frame(within_m1) %>%
+  group_by(size, model_domain) %>%
+  summarise(
+    mean_obs = mean(pairwise_mean_micro, na.rm = TRUE),
+    sd       = sd(pairwise_mean_micro, na.rm = TRUE),
+    .groups  = "drop"
+  ) %>%
+  mutate(size = factor(size,
+                       levels = c("small","medium","large", "human")))
+
+# Extract two separate dataframes for humans and LLMs
+human_df <- df_sd %>% filter(size == "human")
+bar_df   <- df_sd %>% filter(size %in% c("small","medium","large"))
+
+# Get the human mean
+human_mean <- human_df$mean_obs
+# Create a dodge
+pd <- position_dodge(width = 0.6, preserve = "single")
+```
+
+### Plot the data
+```{r}
+within_m_plot <- ggplot(bar_df,
+       aes(x     = model_domain,
+           y     = mean_obs,
+           fill  = size)) +
+  geom_col(position = pd, width = 0.6, colour = "black") +
+  geom_errorbar(aes(ymin = mean_obs - sd,
+                    ymax = mean_obs + sd),
+                position = pd,
+                width    = 0.2,
+                size     = 0.5) +
+  geom_hline(aes(yintercept = human_mean,
+                 linetype   = "Human"),
+             size       = 0.8,
+             colour     = "black",
+             show.legend = TRUE) +
+  scale_fill_brewer(name   = "Model Size",
+                    palette= "Set2",
+                    breaks = c("small","medium","large")) +
+  scale_linetype_manual(name   = "Baseline",
+                        values = c(Human = "dotted")) +
+  guides(fill     = guide_legend(order = 1),
+         linetype = guide_legend(order = 2)) +
+  labs(x    = "Model Domain",
+       y    = "Within-Model Cosine Similarity") +
+  theme_minimal()
+
+within_m_plot
+```
+
+
+
+# Look at the Between-Model Similarity
+## Load additional dataset ("similarity per question" is needed, too!)
+```{r}
+similarity_comparison_models <- read_csv("../EvaluationResults/SemanticEvaluation/similarity_results_models.csv")
+```
+
+## Prepare the dataframe
+```{r}
+refs_dist <- c(
+  # model          = "human",
+  model_domain   = "general",
+  question_type  = "pq",
+  size           = "small"
+)
+
+df_between <- similarity_per_question %>%
+  mutate(
+    size = as.factor(case_when(
+      str_detect(model, "70B|124")              ~ "large",
+      str_detect(model, "7B|8B|6B|4B|3B|phi")   ~ "medium",
+      str_detect(model, "flanT5|biogpt|1B")     ~ "small",
+      TRUE                                            ~ "human"
+    )),
+    question_type = as.factor(question_type)
+  ) %>%
+  filter(model != "human") %>%                           
+  mutate(
+    dist_to_human = 1 - similarity_to_human_centroid,              
+    model_domain = as.factor(model_domain),
+    across(
+      all_of(names(refs_dist)),
+      ~ relevel(.x, ref = refs_dist[cur_column()])
+    )
+  )
+```
+
+
+## Configure different LMER and compare their fit
+```{r}
+# Intercept Only
+bw_m0 <- lmer(dist_to_human ~ 1 + (1 + question_type | model) + (1 | quid), df_between, REML=F)
+# Adding fixed effects
+bw_m1 <- update(bw_m0, . ~ . + question_type + model_domain + size) # Winner
+# Adding two way interaction only between model_domain and size
+bw_m11 <- update(bw_m1, . ~ . + model_domain:size) 
+# Adding two-way interactions
+bw_m2 <- update(bw_m11, . ~ . + question_type:model_domain + question_type:size) # Second (also approaches significance)
+# Adding three-way interactions
+bw_m3 <- update(bw_m2, . ~ . + question_type:model_domain:size)
+
+# Compare the different models
+anova(bw_m0, bw_m1, bw_m11, bw_m2, bw_m3)
+```
+
+### Inspect the winning LMER
+```{r}
+bw_m1 <- lmer(dist_to_human ~ question_type + model_domain + size + (1 + question_type | model) + (1 | quid), df_between, REML=F)
+summary(bw_m1)
+```
+
+## Plot the results
+### Prepare the data for plotting
+```{r}
+# Recode the model names according to what we used in the paper
+label_mapping <- c(
+  "flanT5-base-standard"            = "flanT5 Base (standard)",
+  "flanT5-base-medical"             = "flanT5 Base (medical)",
+  "biogpt-medtext-347M-medical"     = "BioGPT MedText",
+  "biogpt-medical"                  = "BioGPT",
+  "bloom-6B4-german-standard"       = "Bloom CLP German",
+  "mistral-7B-standard"             = "Mistral (7B)",
+  "mistral-7B-medical"              = "BioMistral",
+  "phi-4-mini-standard"             = "Phi 4 Mini",
+  "qwen2.5-7B-standard"             = "Qwen 2.5",
+  "qwen2.5-7B-medical"              = "Qwen UMLS",
+  "ministral-8B-standard"           = "Ministral",
+  "gemma3-4B-standard"              = "Gemma 3",
+  "llama-3.2-1B-standard"           = "Llama 3.2 (1B)",
+  "llama-3.2-1B-medical"            = "Bio Medical Llama 3.2",
+  "llama-3.2-3B-standard"           = "Llama 3.2 (3B)",
+  "Mistral-124B-large-standard"     = "Mistral (124B)",
+  "R1-Qwen-8B-standard"             = "R1 Qwen",
+  "llama-3.3-70B-standard"          = "Llama 3.3"
+)
+
+# Create a matrix showing the centroid similarities for each pair of models
+mat_centroid  <- similarity_comparison_models %>%
+  group_by(model_1, model_2) %>%
+  summarize(
+    avg_centroid  = mean(mean_centroid_comparison,   na.rm = TRUE),
+    .groups = "drop"
+  ) %>%
+  select(model_1, model_2, avg_centroid) %>%
+  pivot_wider(names_from = model_2, values_from = avg_centroid) %>%
+  column_to_rownames("model_1") %>%
+  as.matrix()
+
+# Create the nodes (each model)
+nodes <- similarity_per_question %>%
+  distinct(model, model_domain) %>%
+  rename(name = model) %>%
+  mutate(name = recode(name, !!!label_mapping))
+
+# Select a threshold: How many top-similar models do we want to display per model?
+sim_thresh <- 1
+
+# Take the top similar model (sim_thres=1) per model 
+edges_thresh <- as_tibble(mat_centroid, rownames = "model_1") %>%
+  pivot_longer(-model_1, names_to = "model_2", values_to = "sim") %>%
+  filter(model_1 != model_2) %>%
+  group_by(model_1) %>%
+  slice_max(sim, n = sim_thresh) %>%
+  ungroup() %>%
+  mutate(
+    model_1 = recode(model_1, !!!label_mapping),
+    model_2 = recode(model_2, !!!label_mapping)
+  )
+
+# Reshape the data for plotting
+network_df <- tbl_graph(nodes = nodes, edges = edges_thresh, directed = TRUE)
+```
+
+
+### Plot the data
+```{r}
+network_plot <- ggraph(network_df, layout = "fr") +
+  # Draw edges with arrowheads on the “to” end
+  geom_edge_link(aes(width = sim),
+                 alpha    = 0.9,
+                 show.legend = T,
+                 arrow    = arrow(length = unit(2.5, "mm"), type = "open"),
+                 end_cap  = circle(3, "mm")
+  ) +
+  scale_edge_width(name = "Similarity", range  = c(0.5, 2)) +
+  # Draw the node points
+  geom_node_point(aes(fill = model_domain),
+                  shape = 21, size = 6, stroke = 0.5) +
+  scale_fill_brewer(palette = "Set2") +
+  # Draw boxed labels
+  geom_node_label(aes(label = name),
+                repel         = TRUE,
+                nudge_x       = 0.2,       
+                nudge_y       = -0.2,      
+                hjust         = 0,         
+                size          = 3,
+                label.padding = unit(0.15, "lines"),
+                label.r       = unit(0.3,  "lines"),
+                segment.size  = 0.9,
+                segment.color = "grey50") +
+  theme_graph(base_family = "sans") +
+  labs(fill = "Domain")
+
+network_plot
+```
+
