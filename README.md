@@ -31,7 +31,7 @@ This repository accompanies the publication *GerMedIQ: A Resource for Simulated 
   title            = {{Jhofenbitzer/GerMedIQ-Corpus: GerMedIQ-Corpus (First Public Release)}},
   year             = {2025},
   copyright        = {Creative Commons Attribution 4.0 International},
-  doi              = {10.5281/zenodo.15774407},
+  doi              = {10.5281/zenodo.1646062},
   publisher        = {Zenodo},
 }
 
