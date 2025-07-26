@@ -1,7 +1,10 @@
 # German Medical Interview Questions (GerMedIQ) Corpus 
-This repository hosts the GerMedIQ corpus, a dataset containing 4,524 unique **simulated** question-response pairs from the medical domain. Specifically, the corpus consists of 116 anamnesis questions from standardized medical interview questionnaires answered by 39 non-patient participants. The questions are extracted from 12 baseline anamnesis questionnaires as well as from the EORTC Quality of Life Questionnaire, the PainDETECT Questionnaire, and the Barthel Index.
+This repository contains the GerMedIQ corpus, a dataset of 4,524 unique **simulated** question-response pairs from the medical domain in German. Specifically, the corpus consists of 116 anamnesis questions from standardized medical interview questionnaires answered by 39 non-patient participants. The questions are extracted from 12 baseline anamnesis questionnaires as well as from the EORTC Quality of Life Questionnaire, the PainDETECT Questionnaire, and the Barthel Index.
 
 Along with the simulated responses, an LLM-augmented addition of the corpus can be found, too. The responses from the LLMs were created by 18 small, medium-sized, and large biomedical or general-domain LLMs in a zero-shot approach. For further details, refer to our paper.
+
+# This Repo
+
 
 # Citations
 This repository accompanies the publication *GerMedIQ: A Resource for Simulated and Synthesized Anamnesis Interview Responses in German* (ACL SRW 2025). Please cite both the publication and the Zenodo record when using this resource:
