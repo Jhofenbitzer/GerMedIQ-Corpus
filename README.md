@@ -27,7 +27,6 @@ This repository accompanies the publication *GerMedIQ: A Resource for Simulated 
   doi              = {10.18653/v1/2025.acl-srw.84},
   isbn             = {9798891762541},
   url              = {https://aclanthology.org/2025.acl-srw.84/},
-  urldate          = {2025-07-25},
 },
 @Misc{hofenbitzer2025jhofenbitzer,
   author           = {Justin Hofenbitzer and Sch{\"o}ning, Sebastian and Belle, Sebastian and Lammert, Jacqueline and Modersohn, Luise and Boeker, Martin and Frassinelli, Diego},
