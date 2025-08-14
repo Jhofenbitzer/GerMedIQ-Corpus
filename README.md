@@ -15,7 +15,7 @@ This repository accompanies the publication *GerMedIQ: A Resource for Simulated 
 
 ```
 @InProceedings{hofenbitzer2025germediq,
-  author           = {Hofenbitzer, Justin and Sch{\"o}ning, Sebastian and Sebastian, Belle and Lammert, Jacqueline and Modersohn, Luise and Boeker, Martin and Frassinelli, Diego},
+  author           = {Hofenbitzer, Justin and Schöning, Sebastian and Belle, Sebastian and Lammert, Jacqueline and Modersohn, Luise and Boeker, Martin and Frassinelli, Diego},
   booktitle        = {Proceedings of the 63rd {Annual} {Meeting} of the {Association} for {Computational} {Linguistics} ({Volume} 4: {Student} {Research} {Workshop})},
   title            = {{GerMedIQ}: {A} {Resource} for {Simulated} and {Synthesized} {Anamnesis} {Interview} {Responses} in {German}},
   year             = {2025},
@@ -24,17 +24,19 @@ This repository accompanies the publication *GerMedIQ: A Resource for Simulated 
   month            = jul,
   pages            = {1064--1078},
   publisher        = {Association for Computational Linguistics},
+  doi              = {10.18653/v1/2025.acl-srw.84},
   isbn             = {9798891762541},
+  url              = {https://aclanthology.org/2025.acl-srw.84/},
+  urldate          = {2025-07-25},
 },
 @Misc{hofenbitzer2025jhofenbitzer,
   author           = {Justin Hofenbitzer and Sch{\"o}ning, Sebastian and Belle, Sebastian and Lammert, Jacqueline and Modersohn, Luise and Boeker, Martin and Frassinelli, Diego},
-  title            = {{Jhofenbitzer/GerMedIQ-Corpus: GerMedIQ-Corpus (First Public Release)}},
+  title            = {{Jhofenbitzer/GerMedIQ-Corpus: Official Github Repository of the GerMedIQ Corpus}},
   year             = {2025},
   copyright        = {Creative Commons Attribution 4.0 International},
   doi              = {10.5281/zenodo.1646062},
   publisher        = {Zenodo},
 }
-
 ```
 
 
