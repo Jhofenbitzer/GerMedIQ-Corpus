@@ -15,7 +15,7 @@ This repository accompanies the publication *GerMedIQ: A Resource for Simulated 
 
 ```
 @InProceedings{hofenbitzer2025germediq,
-  author           = {Hofenbitzer, Justin and Schöning, Sebastian and Belle, Sebastian and Lammert, Jacqueline and Modersohn, Luise and Boeker, Martin and Frassinelli, Diego},
+  author           = {Hofenbitzer, Justin and Sch{\"o}ning, Sebastian and Belle, Sebastian and Lammert, Jacqueline and Modersohn, Luise and Boeker, Martin and Frassinelli, Diego},
   booktitle        = {Proceedings of the 63rd {Annual} {Meeting} of the {Association} for {Computational} {Linguistics} ({Volume} 4: {Student} {Research} {Workshop})},
   title            = {{GerMedIQ}: {A} {Resource} for {Simulated} and {Synthesized} {Anamnesis} {Interview} {Responses} in {German}},
   year             = {2025},
