@@ -37,8 +37,7 @@ This repository accompanies the publication *GerMedIQ: A Resource for Simulated 
   publisher        = {Zenodo},
 }
 ```
-# Poster
-[View and Download the Poster (PDF)](./poster_2025_acl-srw.pdf).
+
 
 # License
 This dataset is licensed under the **Creative Commons Attribution 4.0 International (CC BY 4.0)** license.
