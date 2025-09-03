@@ -37,7 +37,8 @@ This repository accompanies the publication *GerMedIQ: A Resource for Simulated 
   publisher        = {Zenodo},
 }
 ```
-
+# Poster
+View and Download the poster [here](https://zenodo.org/records/17047376)!
 
 # License
 This dataset is licensed under the **Creative Commons Attribution 4.0 International (CC BY 4.0)** license.
