@@ -33,7 +33,7 @@ This repository accompanies the publication *GerMedIQ: A Resource for Simulated 
   title            = {{Jhofenbitzer/GerMedIQ-Corpus: Official Github Repository of the GerMedIQ Corpus}},
   year             = {2025},
   copyright        = {Creative Commons Attribution 4.0 International},
-  doi              = {10.5281/zenodo.1646062},
+  doi              = {10.5281/zenodo.16460622},
   publisher        = {Zenodo},
 }
 ```
